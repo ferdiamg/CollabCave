@@ -1,11 +1,13 @@
 - if @beats
   - @beats.each do |beat|
     %p
-      = beat.name
-      = beat.bpm
-      = beat.key
-      posted by:
-      = User.find(beat.user_id).email
+      %b
+        = beat.name
+        = beat.bpm
+        = beat.key
+      posted by
+      %b
+        = "@" + User.find(beat.user_id).username
       %br
       %audio{ :controls => 'controls' }
         %source{ :src => "#{beat.link+"?raw=1"}" }

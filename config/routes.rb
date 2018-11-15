@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :user_sessions
+  resources :user_sessions, :except => [:index]
   resources :users
   resources :beats
   resources :artists
