@@ -1,11 +1,14 @@
 - if @beats
-  - @beats.each do |b|
+  - @beats.each do |beat|
     %p
-      = b.name
-      = b.bpm
-      = b.key
+      = beat.name
+      = beat.bpm
+      = beat.key
       posted by:
-      = User.find(b.user_id).email
+      = User.find(beat.user_id).email
       %br
       %audio{ :controls => 'controls' }
-        %source{ :src => "#{b.link+"?raw=1"}" }
+        %source{ :src => "#{beat.link+"?raw=1"}" }
+      - if current_user.id == beat.user_id  
+        = link_to 'Edit', edit_beat_path(beat)
+        = link_to 'Delete', beat, method: "DELETE", data: {confirm: "Do you really want to delete #{beat.name}?"}

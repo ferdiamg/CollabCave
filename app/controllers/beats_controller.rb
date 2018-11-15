@@ -10,13 +10,26 @@ class BeatsController < ApplicationController
     @beat = Beat.new
   end
 
+  def edit
+    @beat = Beat.find(params[:id])
+  end
+
   def create
     @user = current_user
     @beat = @user.beats.new(beat_params)
     if @beat.save
-      redirect_to root_path, notice: "Beat was successfully created"
+      redirect_to :beats, notice: "Beat was successfully created"
     else
-      redirect_to root_path, alert: "Beat couldn't be created"
+      redirect_to :beats, alert: "Beat couldn't be created"
+    end
+  end
+
+  def destroy
+    @beat = Beat.find(params[:id])
+    if @beat.destroy
+      redirect_to :beats, notice: "Beat was successfully removed"
+    else
+      redirect_to :beats, alert: "Beat couldn't be removed"
     end
   end
 
