@@ -1,7 +1,8 @@
 !!!
 %html
   %head
-    %title CollabCave
+    %title
+      = content_for?(:title) ? yield(:title) : 'CollabCave'
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all'
