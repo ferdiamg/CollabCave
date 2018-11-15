@@ -1,0 +1,11 @@
+= form_for @beat do |f|
+  = f.label :name
+  = f.text_field :name
+  = f.label :bpm
+  = f.text_field :bpm
+  = f.label :key
+  = f.text_field :key
+  = f.label :link
+  = f.text_field :link
+  
+  = f.submit "Create Beat"
