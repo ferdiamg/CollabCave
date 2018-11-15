@@ -1,0 +1,2 @@
+module BeatsHelper
+end
