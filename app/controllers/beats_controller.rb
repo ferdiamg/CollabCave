@@ -14,9 +14,19 @@ class BeatsController < ApplicationController
     @beat = Beat.find(params[:id])
   end
 
+  def update
+    @beat = Beat.find(params[:id])
+    if @beat.update(beat_params)
+      redirect_to :beats, notice: "Beat was successfully updated"
+    else
+      redirect_to :beats, notice: "Beat was successfully updated"
+    end
+  end
+
   def create
     @user = current_user
     @beat = @user.beats.new(beat_params)
+    @beat.tag_list = params[:beat][:tag_list].join(',')
     if @beat.save
       redirect_to :beats, notice: "Beat was successfully created"
     else

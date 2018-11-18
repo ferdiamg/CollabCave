@@ -7,6 +7,8 @@ ruby '2.5.3'
 gem 'haml-rails', '~> 1.0'
 gem 'sorcery'
 gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'select2-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record

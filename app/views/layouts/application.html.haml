@@ -13,3 +13,13 @@
     %p#alert
       = flash[:alert]
     = yield
+:javascript
+  $(document).ready(function() {
+    $('#beat_tag_list').select2({
+      multiple: true,
+      theme: 'classic',
+      tags: true,
+      tokenSeparators: [','],
+      maximumSelectionLength: 3
+    });
+  });
