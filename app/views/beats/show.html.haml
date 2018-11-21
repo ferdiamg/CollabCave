@@ -1,0 +1,14 @@
+%div Name:
+= @beat.name
+%div BPM:
+= @beat.bpm
+%div Key:
+= @beat.key
+%div Link:
+= @beat.link
+%div Type Beat Artists:
+= @beat.tag_list.join(", ")
+
+%div Stems:
+
+= link_to 'Back', :beats

@@ -1,9 +1,12 @@
 = form_tag user_sessions_path, method: "post" do
-    = label_tag :email
-    = text_field_tag :email
-    = label_tag :password
-    = password_field_tag :password
-    = check_box_tag :remember, params[:remember], true
-    = label_tag :remember
-
-    = submit_tag 'Login'
+  .login__form__input
+    .login__form__input--email
+      = label_tag :email
+      = text_field_tag :email
+    .login__form__input--password
+      = label_tag :password
+      = password_field_tag :password
+    .login__form
+      = check_box_tag :remember, params[:remember], true
+      = label_tag :remember
+    = submit_tag "Login", class: "login__form__button"
