@@ -4,5 +4,13 @@
 %h1 Your beats
 - @user.beats.each do |beat|
   = link_to beat.name, edit_beat_path(beat)
+%h1 Your favorites
+- @user.likes.each do |like|
+  %div
+    = like.beat.name
+    produced by
+    %b
+      = "@" + like.beat.user.username
+    = button_to 'Remove', beat_like_path(like.beat, like), method: :delete
 %p
   = link_to 'Back', :beats
