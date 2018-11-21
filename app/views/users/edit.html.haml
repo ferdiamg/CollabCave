@@ -1,2 +1,8 @@
-%h1 Editing user
+%h1 
+  = @user.username
 = render 'form'
+%h1 Your beats
+- @user.beats.each do |beat|
+  = link_to beat.name, edit_beat_path(beat)
+%p
+  = link_to 'Back', :beats

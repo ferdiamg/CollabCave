@@ -1,6 +1,6 @@
 = link_to 'Logout', :logout, method: "POST"
 %h2
-  = @user.username.pluralize
+  = link_to @user.username.pluralize, edit_user_path(@user)
   profile
 = @user.email
 Beats: 
