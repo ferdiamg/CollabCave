@@ -2,7 +2,7 @@
   - @beats.each do |beat|
     %p
       %b
-        = beat.name
+        = link_to beat.name, beat_path(beat)
         = beat.bpm
         = beat.key
         Type: 

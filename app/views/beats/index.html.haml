@@ -5,6 +5,9 @@
 %h3 Filter by
 .search
   %input{placeholder: 'BPM'}
-  %input{placeholder: 'Key'}
+  %select{placeholder: 'Key'}
+    %option{} F#m
+    %option{} D
   %input{placeholder: 'Type Beat Artists (seperated by commas)'}
+  %button Filter
 = render 'feed'
