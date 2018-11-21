@@ -1,4 +1,10 @@
 - content_for :title, "Login to CollabCave"
-%h1 Login
-= render 'form'
-= link_to 'Register', new_user_path
+.login
+  .login__box
+    .login__logo
+      = image_tag 'collabcave_logo.svg', alt: 'CollabCave Logo'
+    .login__form
+      = render 'form'
+    .login__register
+      Don't have an account?
+      = link_to "Sign Up", new_user_path
