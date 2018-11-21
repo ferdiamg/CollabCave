@@ -13,6 +13,9 @@
       %br
       %audio{ :controls => 'controls' }
         %source{ :src => "#{beat.link+"?raw=1"}" }
+      = button_to 'Like', beat_likes_path(beat), method: :post
+      = beat.likes.count
+      = (beat.likes.count) == 1 ? 'Like' : 'Likes'
       - if current_user.id == beat.user_id  
         = link_to 'Edit', edit_beat_path(beat)
         = link_to 'Delete', beat, method: "DELETE", data: {confirm: "Do you really want to delete #{beat.name}?"}

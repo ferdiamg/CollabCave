@@ -11,4 +11,13 @@
 
 %div Stems:
 
+= @beat.likes.count
+= (@beat.likes.count) == 1 ? 'Like' : 'Likes'
+
+- pre_like = @beat.likes.find { |like| like.user_id == current_user.id}
+- if pre_like
+  = button_to 'Unlike', beat_like_path(@beat, pre_like), method: :delete
+- else
+  = button_to 'Like', beat_likes_path(@beat), method: :post
+
 = link_to 'Back', :beats
