@@ -1,5 +1,6 @@
 class BeatsController < ApplicationController
   before_action :require_login
+  helper_method :beat_liked_by_user
 
   def index
     @user = current_user
@@ -54,5 +55,9 @@ class BeatsController < ApplicationController
   private
   def beat_params
     params.require(:beat).permit(:name, :bpm, :key, :link)
+  end
+
+  def beat_liked_by_user(beat)
+    Like.where(user_id: current_user.id, beat_id: beat.id).exists?
   end
 end

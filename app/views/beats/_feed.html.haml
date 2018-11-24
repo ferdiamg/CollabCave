@@ -1,4 +1,13 @@
 - if @beats
+  %h3 Filter by
+  .search
+    %input{placeholder: 'BPM'}
+    %select{placeholder: 'Key'}
+      %option{} F#m
+      %option{} D
+    %input{placeholder: 'Type Beat Artists (seperated by commas)'}
+    %button Filter
+
   - @beats.each do |beat|
     %p
       %b
@@ -13,9 +22,16 @@
       %br
       %audio{ :controls => 'controls' }
         %source{ :src => "#{beat.link+"?raw=1"}" }
-      = button_to 'Like', beat_likes_path(beat), method: :post
-      = beat.likes.count
-      = (beat.likes.count) == 1 ? 'Like' : 'Likes'
+
+
+      - previous_like = beat.likes.find { |like| like.user_id == current_user.id}
+      %p#likes-count
+        = pluralize(beat.likes.count, 'Like')
+      %div#like-button
+        = like_button_tag beat, previous_like
+        
       - if current_user.id == beat.user_id  
         = link_to 'Edit', edit_beat_path(beat)
         = link_to 'Delete', beat, method: "DELETE", data: {confirm: "Do you really want to delete #{beat.name}?"}
+
+  
