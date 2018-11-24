@@ -1,4 +1,4 @@
-%h1 
+%h1
   = @user.username
 = render 'form'
 %h1 Your beats
@@ -7,10 +7,12 @@
 %h1 Your favorites
 - @user.likes.each do |like|
   %div
-    = like.beat.name
+    = link_to like.beat.name, beat_path(like.beat)
     produced by
     %b
       = "@" + like.beat.user.username
-    = button_to 'Remove', beat_like_path(like.beat, like), method: :delete
+
+    %div#like-button
+      = like_button_tag like.beat, like
 %p
   = link_to 'Back', :beats
