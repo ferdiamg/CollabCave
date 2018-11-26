@@ -10,6 +10,7 @@ class BeatsController < ApplicationController
 
   def show
     @beat = Beat.find(params[:id])
+    @stems = @beat.stems.all
   end
 
   def new
@@ -30,6 +31,7 @@ class BeatsController < ApplicationController
   def edit
     @beat = Beat.find(params[:id])
     redirect_to :root unless @beat.user == current_user
+    @stems = @beat.stems.all
   end
 
   def update

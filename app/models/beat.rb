@@ -9,6 +9,7 @@ class Beat < ApplicationRecord
 
   has_many :artists
   has_many :likes, dependent: :destroy
+  has_many :stems, dependent: :destroy
   belongs_to :user
 
   private
