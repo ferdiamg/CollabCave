@@ -1,0 +1,15 @@
+- if current_user.id == @beat.user_id
+  = form_for [@beat, @beat.stems.new] do |s|
+    = s.label :name
+    = s.text_field :name
+    = s.label :link
+    = s.text_field :link
+    = s.submit
+
+- @stems.each do |stem|
+  = stem.name
+  %audio{ :controls => 'controls' }
+    %source{ :src => "#{stem.link+"?raw=1"}" }
+  - if current_user.id == @beat.user_id
+    -# = link_to 'Edit', edit_beat_stem_path(stem)
+    = link_to 'Delete', beat_stem_path(@beat, stem), method: "DELETE", data: {confirm: "Do you really want to delete #{stem.name}?"}

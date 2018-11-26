@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :user_sessions, :except => [:index]
   resources :users
   resources :beats do
-    resources :likes
+    resources :likes, :stems
   end
   resources :artists
   get 'login' => 'user_sessions#new', :as => :login

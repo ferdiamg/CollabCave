@@ -9,7 +9,8 @@
 %div Type Beat Artists:
 = @beat.tag_list.join(", ")
 
-%div Stems:
+%p Stems:
+= render 'stems_form'
 
 - previous_like = @beat.likes.find { |like| like.user_id == current_user.id}
 %p#likes-count
