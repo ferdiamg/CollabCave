@@ -1,20 +1,3 @@
-// Place all the styles related to the UserSessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-@import url('https://fonts.googleapis.com/css?family=Lato');
-
-$dark-blue: #202837;
-$dark-grey: #C4CAD3;
-$prim-blue: #204CEB;
-$prim-purp: #AE28FE;
-$white: #FFFFFF;
-
-body {
-  background-color: $white;
-  font-family: 'Lato', sans-serif;
-  font-size: 1rem;
-}
-
 .login {
   height: 100vh;
   display: flex;
