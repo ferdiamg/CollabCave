@@ -1,124 +1,80 @@
 .login {
-  height: 100vh;
-  display: flex;
-  align-items: center;
+  display: flex;  
   justify-content: center;
+  align-items: center;
+  height: 100vh;
 
-  &__label-foo {
-    background: red;
-  }
-
-  &__checkbox input {
-    background-color: red;
-    height: 20px;
-    color: red;
-  }
-  
   &__box {
-    -webkit-box-shadow: 0px 8px 35px 0px rgba(0,0,0,0.15);
-    -moz-box-shadow: 0px 8px 35px 0px rgba(0,0,0,0.15);
-    box-shadow: 0px 8px 35px 0px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0px 8px 40px 0px rgba(0,0,0,0.05);
+    -moz-box-shadow: 0px 8px 40px 0px rgba(0,0,0,0.05);
+    box-shadow: 0px 8px 40px 0px rgba(0,0,0,0.05);
     border-radius: 17px;
-    height: 520px;
-    width: 30%;
+    padding: 70px 100px 40px 100px;
+  }
+
+  &__logo {
+    display: block;
+    width: 85%;
+    height: auto;
+    margin: 0 auto 70px auto;
+  }
+
+  &__form {
+    width: 100%;
+
+    .button {
+      margin: 0 auto 30px auto;
+      width: 60%;
+    }
+  }
+
+  &__input {
+    position: relative;
+    width: 100%;
+  }
+
+  &__field {
+    width: 100%;
+    height: 50px;
+    display: block;
+    margin-bottom: 5px;
+    color: $dark-grey;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid $dark-grey;
+    outline: none;
+
+    &--password {
+      margin-bottom: 55px;
+    }
+
+    &::placeholder {
+      font-weight: 200;
+      font-size: 1.25rem;
+      padding-left: 5px;
+      color: $dark-grey;
+    }
   }
 
   &__register {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: $dark-grey;
-    padding-top: 2em;
+    font-weight: 200;
+    font-size: 1.25rem;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    padding-top: 30px;
 
-    a {
-      padding-left: 0.2em;
+    &-link {
       color: $dark-grey;
       text-decoration: none;
-      -webkit-transition: color 0.1s linear;
-      -ms-transition: color 0.1s linear;
-      transition: color 0.1s linear;
+      transition: color 0.5s ease;
 
       &:hover {
         color: $dark-blue;
-        -webkit-transition: color 0.1s linear;
-        -ms-transition: color 0.1s linear;
-        transition: color 0.1s linear;
+        transition: color 0.5s ease;
       }
-    }
-  }
-
-  .login__logo {
-    padding-top: 5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      height: 40px;
-      padding-bottom: 3em;
-    }
-  }
-
-  .login__form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &__button {
-      padding-top: 3em;
-      border-radius: 4px;
-      border: 0;
-      color: $white;
-      background-color: $dark-blue;
-      padding: 20px;
-      width: 13em;
-      font-size: 1.25em;
-      -webkit-transition: background-color 0.1s linear;
-          -ms-transition: background-color 0.1s linear;
-              transition: background-color 0.1s linear;
-
-      &:hover {
-        background-color: lighten($dark-blue, 10%);
-        cursor: pointer;
-        -webkit-transition: background-color 0.1s linear;
-            -ms-transition: background-color 0.1s linear;
-                transition: background-color 0.1s linear;
-      }
-    }
-
-    &__input {
-      position: relative;
-
-      &--email label {
-        position: absolute;
-        color: $dark-grey;
-        top: 10px;
-      }
-
-      &--email input {
-        border-style: none;
-        padding: 15px;
-        color: $dark-grey;
-        border-bottom: 2px solid $dark-grey;
-        width: 75%;
-
-        label :focus {
-          color: $white;
-        }
-      }
-
-      &--password label {
-        position: absolute;
-        color: $dark-grey;
-        top: 55px;
-      }
-      &--password input {
-        border-style: none;
-        padding: 15px;
-        border-bottom: 2px solid $dark-grey;
-        width: 75%;
-      }
-      
     }
   }
 }
