@@ -2,35 +2,26 @@
   display: block;
   padding-top: 3em;
   border: 0;
-  padding: 18px;
-  width: 13em;
+  padding: 17px;
+  width: 8.25em;
   font-size: 1.25em;
-  border-radius: 19px;
+  border-radius: 20px;
 
-  -webkit-box-shadow: 0px 8px 40px 0px rgba(0,0,0,0.05);
-  -moz-box-shadow: 0px 8px 40px 0px rgba(0,0,0,0.05);
-  box-shadow: 0px 8px 40px 0px rgba(0,0,0,0.05);
+  -webkit-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+  -moz-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+  box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
 
   &--standard {
     color: $white;
-    background: linear-gradient(45deg, $prim-blue, $prim-purp);
+    background-image: linear-gradient(45deg, $prim-blue 0%, $prim-purp 90%);
+    background-size: 150% 100%;
+    background-position: 0% 0;
+    margin: 20px;
+    transition: background-position 0.2s ease-out;
 
     &:hover {
+      background-position: right center;
       cursor: pointer;
-      animation-name: button-hover;
-      animation-duration: 1s;
-      animation-timing-function: linear;
-      animation-direction: linear;
-    }
-  }
-
-  @keyframes button-hover {
-    0% {
-      background: linear-gradient(45deg, $prim-blue, $prim-purp);
-    }
-
-    100% {
-      background: linear-gradient(-15deg, $prim-blue , $prim-purp);
     }
   }
 }
