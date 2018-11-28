@@ -12,12 +12,17 @@
 *
 *= require select2
 */
+@import "font-awesome";
 @import "base/normalize";
 @import "base/variables";
 @import "base/buttons";
+@import "base/inputs";
 @import "base/base";
+
+@import "partials/header";
+@import "partials/footer";
+
 @import "pages/beats";
-@import "pages/artists";
 @import "pages/likes";
 @import "pages/stems";
 @import "pages/users";

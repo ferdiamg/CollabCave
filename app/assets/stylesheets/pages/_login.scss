@@ -27,9 +27,15 @@
     }
   }
 
-  &__input {
-    position: relative;
-    width: 100%;
+  &__pass-button {
+    display: block;
+    width: 8%;
+    height: auto;
+  }
+
+  &__field-wrapper {
+    display: flex;
+    flex-flow: column-reverse;
   }
 
   &__field {
@@ -74,6 +80,50 @@
         color: $dark-blue;
         transition: color 0.5s ease;
       }
+    }
+  }
+
+  &__input {
+    position: relative;
+    width: 100%;
+
+    label, input {
+      transition: all 0.2s;
+      touch-action: manipulation;
+    }
+
+    input:placeholder-shown + label {
+      font-weight: 200;
+      font-size: 1em;
+      padding-left: 5px;
+      color: $dark-grey;
+
+      cursor: text;
+      max-width: 66.66%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transform-origin: left bottom;
+      transform: translate(0, 2.125rem) scale(1.25);
+    }
+
+    ::-webkit-input-placeholder {
+      opacity: 0;
+      transition: inherit;
+    }
+
+    input:focus::-webkit-input-placeholder {
+      opacity: 1;
+    }
+
+    input:not(:placeholder-shown) + label,
+    input:focus + label {
+      font-weight: 200;
+      font-size: 1rem;
+      padding-left: 5px;
+      color: $dark-grey;
+      transform: translate(0, 0) scale(1);
+      cursor: pointer;
     }
   }
 }

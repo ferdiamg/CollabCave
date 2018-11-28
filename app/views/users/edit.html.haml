@@ -1,18 +1,29 @@
-%h1
-  = @user.username
-= render 'form'
-%h1 Your beats
-- @user.beats.each do |beat|
-  = link_to beat.name, edit_beat_path(beat)
-%h1 Your favorites
-- @user.likes.each do |like|
-  %div
-    = link_to like.beat.name, beat_path(like.beat)
-    produced by
-    %b
+- content_for :title, "Your profile"
+.name
+  %h2.headline
+    = "@"+@user.username
+  = @user.beats.count
+  beats
+
+.favorites
+  %h2.headline Your favorites
+  - @user.likes.each do |like|
+    .beat
+      = link_to like.beat.name, beat_path(like.beat)
       = "@" + like.beat.user.username
 
-    %div#like-button
-      = like_button_tag like.beat, like
-%p
-  = link_to 'Back', :beats
+      %div#like-button
+        = like_button_tag like.beat, like
+
+.user-beats
+  %h2.headline Your beats
+  - @user.beats.each do |beat|
+    .beat
+      = link_to beat.name, edit_beat_path(beat)
+
+%hr.divider
+
+.profile
+  %h2.headline
+    Edit your profile
+  = render 'form'

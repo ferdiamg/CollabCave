@@ -1,5 +1,37 @@
 body {
   background-color: $white;
   font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
+
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  flex: 1;
+}
+
+::selection {
+  background: $prim-blue;
+  color: $white;
+}
+::-moz-selection {
+  background: $prim-blue;
+  color: $white;
+}
+
+.headline {
+  font-size: 1.25em;
+  color: $dark-blue;
+  font-weight: 600;
+}
+
+.divider {
+  margin: 40px auto;
+  border: none;
+  border-left: 3px solid $prim-blue;
+  height: 69px;
+  width: 1px;
 }

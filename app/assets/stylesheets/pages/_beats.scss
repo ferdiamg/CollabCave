@@ -1,3 +1,54 @@
-// Place all the styles related to the Beats controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.form {
+  padding: 20px;
+  border-radius: 17px;
+  -webkit-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+  -moz-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+  box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+  margin-bottom: 2.5em;
+}
+
+.feed {
+    -webkit-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+    -moz-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+    box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+    padding: 20px;
+    border-radius: 17px;
+    margin-bottom: 100px;
+    
+  &__beat {
+    margin: 90px 30px;
+  }
+}
+
+.beat {
+
+  &__box {
+    border-radius: 17px;
+    -webkit-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+    -moz-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+    box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+    padding: 20px;
+  }
+
+
+  &__title {
+    text-decoration: none;
+    color: $dark-blue;
+    font-weight: 600;
+
+    &:hover {
+      color: $prim-blue;
+    }
+  }
+}
+
+.box {
+
+
+  &__interaction {
+    a {
+      text-decoration: none;
+      color: $prim-blue;
+    }
+  }
+}

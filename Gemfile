@@ -4,12 +4,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
-#Big, extern libraries
+# Big, extern libraries
 gem 'sorcery'
 gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'
 gem 'select2-rails'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 
-#Standard, extern libraries
+# Standard, extern libraries
 gem 'haml-rails', '~> 1.0'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 

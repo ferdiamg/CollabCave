@@ -1,0 +1,12 @@
+- on_feed = current_page?(:beats) ? 'header__item--active' : ' '
+- on_profile = current_page?(edit_user_path(current_user)) ? 'header__item--active' : ''
+%navigation.header
+  %ul.header__nav
+    %li.header__item
+      = image_tag "collabcave_logo.svg"
+    %li.header__item
+      = link_to "Feed", :beats, class: "#{on_feed}"
+    %li.header__item
+      = link_to "Profile", edit_user_path(current_user), class: "#{on_profile}"
+    %li.header__item
+      = link_to 'Logout', :logout, method: "POST"

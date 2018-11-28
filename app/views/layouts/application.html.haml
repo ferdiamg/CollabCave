@@ -9,11 +9,15 @@
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
   %body
+    = render 'layouts/header' unless @disable_header
     %p#notice
       = flash[:notice]
     %p#alert
       = flash[:alert]
-    = yield
+    .content
+      = yield
+    = render 'layouts/footer' unless @disable_header
+
 :javascript
   $(document).ready(function() {
     $('#beat_tag_list').select2({

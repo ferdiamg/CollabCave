@@ -12,14 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2018_11_26_114136) do
 
-  create_table "artists", force: :cascade do |t|
-    t.string "name"
-    t.integer "beats_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["beats_id"], name: "index_artists_on_beats_id"
-  end
-
   create_table "beats", force: :cascade do |t|
     t.string "name"
     t.integer "bpm"

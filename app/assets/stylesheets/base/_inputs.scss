@@ -1,8 +1,8 @@
-.button {
+.input {
   display: block;
   padding-top: 3em;
   border: 0;
-  padding: 15px;
+  padding: 17px;
   width: 8.25em;
   font-size: 1em;
   border-radius: 17px;
@@ -12,16 +12,16 @@
   box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
 
   &--standard {
-    color: $white;
-    background-image: linear-gradient(45deg, $prim-blue 0%, $prim-purp 90%);
-    background-size: 150% 100%;
-    background-position: 0% 0;
+    color: $dark-blue;
     margin: 20px;
-    transition: background-position 0.2s ease-out;
 
     &:hover {
-      background-position: right center;
-      cursor: pointer;
+    
+    }
+
+    &::placeholder {
+      color: $dark-grey;
+      font-weight: 200;
     }
   }
 }
