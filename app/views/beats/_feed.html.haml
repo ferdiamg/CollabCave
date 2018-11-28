@@ -1,37 +1,41 @@
-- if @beats
-  %h3 Filter by
-  .search
-    %input{placeholder: 'BPM'}
-    %select{placeholder: 'Key'}
-      %option{} F#m
-      %option{} D
-    %input{placeholder: 'Type Beat Artists (seperated by commas)'}
-    %button Filter
+.feed
+  %h2.headline Feed
+
+  - if @beats
+    = form_tag :beats, method: "get" do
+      = text_field_tag :bpm, nil, placeholder: "BPM"
+      = text_field_tag :key, nil, placeholder: "Key"
+      = submit_tag "Filter", class: "button button--standard"
 
   - @beats.each do |beat|
-    %p
-      %b
-        = link_to beat.name, beat_path(beat)
+    .feed__beat
+      .beat__box
+        // Beat-Infos
+        = link_to beat.name, beat_path(beat), class: "beat__title"
         = beat.bpm
         = beat.key
         Type: 
         = beat.tag_list
-      posted by
-      %b
+
+        // Beat Player
+        %audio{ controls: 'controls' }
+          %source{ src: "#{beat.link+"?raw=1"}" }
+
+        .box__interaction
+          // Beat likes
+          - previous_like = beat.likes.find { |like| like.user_id == current_user.id}
+          %p#likes-count
+            = pluralize(beat.likes.count, 'Like')
+          %div#like-button
+            = like_button_tag beat, previous_like
+            
+          // Beat owner options
+          - if current_user.id == beat.user_id  
+            = link_to edit_beat_path(beat) do
+              %i.fa.fa-pencil
+            = link_to beat, method: "DELETE", data: {confirm: "Do you really want to delete #{beat.name}?"} do
+              %i.fa.fa-trash
+            
+      .beat__details
+        posted by
         = "@" + User.find(beat.user_id).username
-      %br
-      %audio{ :controls => 'controls' }
-        %source{ :src => "#{beat.link+"?raw=1"}" }
-
-
-      - previous_like = beat.likes.find { |like| like.user_id == current_user.id}
-      %p#likes-count
-        = pluralize(beat.likes.count, 'Like')
-      %div#like-button
-        = like_button_tag beat, previous_like
-        
-      - if current_user.id == beat.user_id  
-        = link_to 'Edit', edit_beat_path(beat)
-        = link_to 'Delete', beat, method: "DELETE", data: {confirm: "Do you really want to delete #{beat.name}?"}
-
-  

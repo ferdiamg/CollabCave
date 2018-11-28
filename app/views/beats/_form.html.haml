@@ -1,17 +1,13 @@
 = form_for @beat do |f|
-  = f.label :name
-  = f.text_field :name, value: 'Testbeat'
-  = f.label :bpm
-  = f.text_field :bpm, value: '199'
-  = f.label :key
-  = f.text_field :key, value: 'X#'
-  = f.label :link
-  = f.text_area :link, value: 'https://www.dropbox.com/s/8lnnk2ts0wimhnw/Cartii%20Yachty%20C%20Minor%20150BPM%20v2.mp3'
-  - if params[:action] == 'edit'
-    = f.label :tag_list, 'Type Beat Artist'
-    = f.text_field :tag_list, value: @beat.tag_list.join(", ")
-  - else
-    = f.label :tag_list, 'Type Beat Artist (seperated by commas)'
-    -# = f.select :tag_list, ActsAsTaggableOn::Tag.all, { prompt: 'Please select'}, { multiple: true, size: 10 }
-    = f.collection_select :tag_list, ActsAsTaggableOn::Tag.all, :name, :name, {}, multiple: true
-  = f.submit
+  .form
+    %h2.headline
+      Post a new beat
+    = f.text_field :name, class: 'input input--standard', placeholder: 'Name'
+    = f.text_field :bpm, class: 'input input--standard', placeholder: 'BPM'
+    = f.text_field :key, class: 'input input--standard', placeholder: 'Key'
+    = f.text_field :link, class: 'input input--standard', placeholder: 'Dropbox-Link'
+    - if params[:action] == 'edit'
+      = f.text_field :tag_list, value: @beat.tag_list.join(", ")
+    - else
+      = f.collection_select :tag_list, ActsAsTaggableOn::Tag.all, :name, :name, {}, multiple: true
+    = f.submit "Post Beat", class: "button button--standard"

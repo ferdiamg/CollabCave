@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
       redirect_to login_path, alert: 'Please login first'
     end
 
-    # def authorized_user(instance)
-    #   current_user.id == instance.user_id
-    # end
+    def disable_header
+      @disable_header = true
+    end
 end

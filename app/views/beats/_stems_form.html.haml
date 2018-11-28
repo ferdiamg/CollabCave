@@ -4,7 +4,7 @@
     = s.text_field :name
     = s.label :link
     = s.text_field :link
-    = s.submit
+    = s.submit "Post Stem", class: "button button--standard"
 
 - @stems.each do |stem|
   = stem.name

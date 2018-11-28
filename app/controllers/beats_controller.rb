@@ -5,7 +5,10 @@ class BeatsController < ApplicationController
   def index
     @user = current_user
     @beat = Beat.new
-    @beats = Beat.all
+    @beats = Beat.where(nil) # creates an anonymous scope
+    @beats = @beats.bpm(params[:bpm]) if params[:bpm].present?
+    @beats = @beats.key(params[:key]) if params[:key].present?
+    @beats = @beats.tagged_with(params[:tagged_with]) if params[:tagged_with].present?
   end
 
   def show
