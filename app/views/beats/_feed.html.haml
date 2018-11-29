@@ -3,8 +3,9 @@
 
   - if @beats
     = form_tag :beats, method: "get" do
-      = text_field_tag :bpm, nil, placeholder: "BPM"
-      = text_field_tag :key, nil, placeholder: "Key"
+      = text_field_tag :bpm, nil, placeholder: ">= BPM", class: "input input--standard"
+      = text_field_tag :key, nil, placeholder: "Key", class: "input input--standard"
+      = text_field_tag :tagged_with, nil, placeholder: "Tags", class: "input input--standard"
       = submit_tag "Filter", class: "button button--standard"
 
   - @beats.each do |beat|
@@ -26,7 +27,7 @@
           - previous_like = beat.likes.find { |like| like.user_id == current_user.id}
           %p#likes-count
             = pluralize(beat.likes.count, 'Like')
-          %div#like-button
+          #like-button
             = like_button_tag beat, previous_like
             
           // Beat owner options

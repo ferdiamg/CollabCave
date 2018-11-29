@@ -49,6 +49,10 @@
     a {
       text-decoration: none;
       color: $prim-blue;
+
+      &:hover {
+        color: lighten($prim-blue, 10%);
+      }
     }
   }
 }

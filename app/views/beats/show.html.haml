@@ -1,21 +1,21 @@
-%div Name:
+Name:
 = @beat.name
-%div BPM:
+BPM:
 = @beat.bpm
-%div Key:
+Key:
 = @beat.key
-%div Link:
+Link:
 = @beat.link
-%div Type Beat Artists:
+Type Beat Artists:
 = @beat.tag_list.join(", ")
 
-%p Stems:
+Stems:
 = render 'stems_form'
 
 - previous_like = @beat.likes.find { |like| like.user_id == current_user.id}
 %p#likes-count
   = pluralize(@beat.likes.count, 'Like')
-%div#like-button
+#like-button
   = like_button_tag @beat, previous_like
 
 = link_to 'Back', :beats
