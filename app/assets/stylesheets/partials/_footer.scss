@@ -4,23 +4,26 @@
   color: $white;
   font-weight: 200;
   width: 100%;
-  
   display: flex;
   align-items: center;
   justify-content: center;
+  
 
   &__box {
-    width: 40em;
+    width: 50%;
+    max-width: 850px;
+    display: flex;
+    justify-content: space-between;
   }
 
   &__text {
-    
-    &--right {
-      float: right;
-    }
 
     &--left {
-      float: left;
+      
+    }
+
+    &--right {
+      
     }
   }
 }

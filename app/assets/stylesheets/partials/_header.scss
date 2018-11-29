@@ -8,37 +8,36 @@
 
   &__nav {
     display: flex;
-
-    a {
-      display: block;
-      padding: 15px;
-      margin: 10px;
-      color: $dark-blue;
-      font-weight: 200;
-      text-decoration: none;
-
-      &:hover {
-        color: $prim-blue;
-      }
-    }
+    
   }
 
   &__item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     &--active {
       font-weight: 500 !important;
     }
 
     &:first-child {
+      align-self: center;
+      
       margin-right: auto;
-      margin-top: 1.25em;
       width: 10rem;
-      min-width: 5rem;
+      min-width: 7rem;
       height: auto;
       display: block;
+    }
+  }
+
+  a {
+    display: block;
+    padding: 5px;
+    margin: 10px;
+    color: $dark-blue;
+    font-weight: 200;
+    text-decoration: none;
+
+    &:hover {
+      color: $prim-blue;
     }
   }
 }

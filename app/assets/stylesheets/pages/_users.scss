@@ -1,5 +1,4 @@
-.favorites {
-  border-radius: 17px;
+.favorites {  
   -webkit-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
   -moz-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
   box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
@@ -7,20 +6,44 @@
   margin-bottom: 40px;
 }
 
-.beat {
-  height: 40px;
-  padding: 20px;
+.user-beats {
   -webkit-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
   -moz-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
   box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+  padding: 20px;
 }
 
-.user-beats {
-  border-radius: 17px;
+.item-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
+  grid-gap: 40px;
+}
+
+.beat {
+  height: 100px;
+  width: 100px;
   -webkit-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
   -moz-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
   box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
-  padding: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__link {
+    text-decoration: none;
+    color: $dark-blue;
+    font-weight: 500;
+
+    &:hover {
+      color: $prim-blue;
+    }
+  }
+}
+
+.profile-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
 }
 
 .profile {
@@ -30,8 +53,27 @@
   box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
   padding: 20px;
   margin-bottom: 100px;
+
+  &__button {
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
 }
 
 .name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin-bottom: 40px;
+
+  &__headline {
+    margin-bottom: 10px;
+  }
+
+  &__info {
+    color: $dark-grey;
+    font-weight: 200;
+  }
 }

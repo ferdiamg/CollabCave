@@ -1,7 +1,9 @@
 = form_for @user do |f|
+  .profile-container
     = f.text_field :email, class: "input input--standard", placeholder: "Email"
     = f.text_field :username, class: "input input--standard", placeholder: "Username"
+  .profile-container
     = f.text_field :password, class: "input input--standard", placeholder: "Password"
     = f.text_field :password_confirmation, class: "input input--standard", placeholder: "Password confirmation"
 
-    = f.submit 'Save', class: "button button--standard"
+  = f.submit 'Save profile', class: "button button--standard profile__button"

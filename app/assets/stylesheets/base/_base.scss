@@ -11,6 +11,8 @@ body {
 
 .content {
   flex: 1;
+  width: 50%;
+  max-width: 850px;
 }
 
 ::selection {
@@ -26,6 +28,7 @@ body {
   font-size: 1.25em;
   color: $dark-blue;
   font-weight: 600;
+  margin-bottom: 15px;
 }
 
 .divider {
