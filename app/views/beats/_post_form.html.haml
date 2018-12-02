@@ -1,0 +1,11 @@
+= form_for @beat do |f|
+  .form
+    %h2.headline
+      Post a new beat
+    .beat-inputs
+      = f.text_field :name, class: 'input input--standard', placeholder: 'Name'
+      = f.text_field :bpm, class: 'input input--standard', placeholder: 'BPM'
+      = f.text_field :key, class: 'input input--standard', placeholder: 'Key'
+      = f.text_field :link, class: 'input input--standard', placeholder: 'Dropbox-Link'
+      = f.collection_select :tag_list, ActsAsTaggableOn::Tag.all, :name, :name, {}, multiple: true  
+    = f.submit "Post Beat", class: "button button--standard beat-inputs__button"

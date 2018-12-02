@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   resources :artists
   get 'login' => 'user_sessions#new', :as => :login
+  get 'register' => 'users#new', :as => :register
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
   root 'user_sessions#new'

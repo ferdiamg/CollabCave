@@ -8,12 +8,18 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
+
   %body
+    -# - if !flash.empty?
+    -#   .notice
+    -#     = flash[:notice]
+    -#   .alert
+    -#     = flash[:alert]
+
+    - flash.each do |key, value|
+      = content_tag :div, value, class: "#{key}"
+
     = render 'layouts/header' unless @disable_header
-    %p#notice
-      = flash[:notice]
-    %p#alert
-      = flash[:alert]
     .content
       = yield
     = render 'layouts/footer' unless @disable_header
@@ -27,4 +33,12 @@
       tokenSeparators: [','],
       maximumSelectionLength: 3
     });
+  });
+
+:javascript
+  $(function() {
+    setTimeout(function(){
+      $('.notice').slideUp(500);
+      $('.alert').slideUp(500);
+    }, 1000);
   });
