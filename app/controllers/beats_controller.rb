@@ -41,6 +41,7 @@ class BeatsController < ApplicationController
   def update
     @beat = Beat.find(params[:id])
     redirect_to :root unless @beat.user == current_user
+    @beat.tag_list = params[:beat][:tag_list]
     if @beat.update(beat_params)
       redirect_to :beats, notice: "Beat was successfully updated"
     else
