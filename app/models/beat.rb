@@ -4,7 +4,8 @@ class Beat < ApplicationRecord
   validates :key, length: { maximum: 3 }
   validates :link, presence: true
 
-  scope :bpm, -> (bpm) { where("bpm >= ?", "#{bpm}") }
+  scope :from_bpm, -> (bpm) { where("bpm >= ?", "#{bpm}") }
+  scope :to_bpm, -> (bpm) { where("bpm <= ?", "#{bpm}") }
   scope :key, -> (key) { where key: key }
 
   acts_as_taggable # Alias for acts_as_taggable_on :tags

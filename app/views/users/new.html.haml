@@ -1,4 +1,26 @@
 - content_for :title, "Register at CollabCave"
-%h1 Register
-= render 'form'
-= link_to 'Back', :login
+
+%section.login
+  .login__box
+    = image_tag "collabcave_logo.svg", alt: "CollabCave Logo", class: "login__logo"
+    -# = render "form", button_text: "Register"
+
+    = form_for @user, :html => { class: "login__form" } do |f|
+      .login__input
+        .login__field-wrapper
+          = f.text_field :email, placeholder: " ", class: "login__field"
+          = f.label :email
+        .login__field-wrapper
+          = f.text_field :username, placeholder: " ", class: "login__field"
+          = f.label :username
+        .login__field-wrapper
+          = f.password_field :password, placeholder: " ", class: "login__field"
+          = f.label :password
+        .login__field-wrapper
+          = f.password_field :password_confirmation, placeholder: " ", class: "login__field login__field--password"
+          = f.label :password_confirmation
+        = f.submit "Register", class: "button button--standard"
+
+    .login__register
+      Got an account already?
+      = link_to "Log In", :login, class: "login__register-link"

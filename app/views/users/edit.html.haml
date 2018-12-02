@@ -11,10 +11,11 @@
   .item-container
     - @user.likes.each do |like|
       .beat
-        = link_to like.beat.name, beat_path(like.beat)
-        = "@" + like.beat.user.username
+        = link_to like.beat.name, beat_path(like.beat), class: "beat__link"
+        .beat__producer
+          = "@" + like.beat.user.username
 
-        #like-button
+        #like-button.beat__like
           = like_button_tag like.beat, like
 
 .user-beats

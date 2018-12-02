@@ -1,0 +1,8 @@
+= form_tag :beats, method: "GET" do
+  .filter
+    .filter__inputs
+      = text_field_tag :from_bpm, nil, placeholder: "from BPM", class: "input input--standard"
+      = text_field_tag :to_bpm, nil, placeholder: "to BPM", class: "input input--standard"
+      = text_field_tag :key, nil, placeholder: "Key", class: "input input--standard"
+      = text_field_tag :tagged_with, nil, placeholder: "Tags", class: "input input--standard"
+      = submit_tag "Filter", class: "button button--standard"

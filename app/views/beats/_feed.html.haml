@@ -2,41 +2,42 @@
   %h2.headline Feed
 
   - if @beats
-    = form_tag :beats, method: "get" do
-      = text_field_tag :bpm, nil, placeholder: ">= BPM", class: "input input--standard"
-      = text_field_tag :key, nil, placeholder: "Key", class: "input input--standard"
-      = text_field_tag :tagged_with, nil, placeholder: "Tags", class: "input input--standard"
-      = submit_tag "Filter", class: "button button--standard"
+    = render "filter"
 
-  - @beats.each do |beat|
-    .feed__beat
-      .beat__box
-        // Beat-Infos
-        = link_to beat.name, beat_path(beat), class: "beat__title"
-        = beat.bpm
-        = beat.key
-        Type: 
-        = beat.tag_list
+    - @beats.each do |beat|
+      .feed__beat
+        .beat__box
+          // Beat-Infos
+          = link_to beat.name, beat_path(beat), class: "beat__title"
+          = beat.bpm
+          = beat.key
+          Type: 
+          = beat.tag_list
 
-        // Beat Player
-        %audio{ controls: 'controls' }
-          %source{ src: "#{beat.link+"?raw=1"}" }
+          // Beat Player
+          %audio{ controls: 'controls' }
+            %source{ src: "#{beat.link+"?raw=1"}" }
 
-        .box__interaction
-          // Beat likes
-          - previous_like = beat.likes.find { |like| like.user_id == current_user.id}
-          %p#likes-count
-            = pluralize(beat.likes.count, 'Like')
-          #like-button
-            = like_button_tag beat, previous_like
-            
-          // Beat owner options
-          - if current_user.id == beat.user_id  
-            = link_to edit_beat_path(beat) do
-              %i.fa.fa-pencil
-            = link_to beat, method: "DELETE", data: {confirm: "Do you really want to delete #{beat.name}?"} do
-              %i.fa.fa-trash
-            
-      .beat__details
-        posted by
-        = "@" + User.find(beat.user_id).username
+          .box__interaction
+            // Beat likes
+            - previous_like = beat.likes.find { |like| like.user_id == current_user.id }
+            -# %p#likes-count
+            -#   = pluralize(beat.likes.count, 'Like')
+            #like-button
+              = like_button_tag beat, previous_like
+              
+            // Beat owner options
+            - if current_user.id == beat.user_id  
+              = link_to edit_beat_path(beat) do
+                %i.fa.fa-pencil
+              = link_to beat, method: "DELETE", data: {confirm: "Do you really want to delete #{beat.name}?"} do
+                %i.fa.fa-trash
+              
+        .beat__details
+          .beat__details--date
+            created at
+            = beat.created_at.strftime("%a, %d %b %Y %H:%M:%S")
+          .beat__details--text
+            posted by
+          .beat__details--user
+            = "@" + User.find(beat.user_id).username
