@@ -1,15 +1,26 @@
 - if current_user.id == @beat.user_id
-  = form_for [@beat, @beat.stems.new] do |s|
-    = s.label :name
-    = s.text_field :name
-    = s.label :link
-    = s.text_field :link
-    = s.submit "Post Stem", class: "button button--standard"
+  .add-stems
+    %h2.headline
+      Add a stem
+    
+    = form_for [@beat, @beat.stems.new] do |s|
+      .add-stems__inputs
+        = s.text_field :name, class: 'input input--standard add-stems__inputs--name', placeholder: 'Name'
+        = s.text_field :link, class: 'input input--standard add-stems__inputs--link', placeholder: 'Dropbox-Link'
+      = s.submit "+ Add", class: "button button--standard add-stems__button"
 
-- @stems.each do |stem|
-  = stem.name
-  %audio{ :controls => 'controls' }
-    %source{ :src => "#{stem.link+"?raw=1"}" }
-  - if current_user.id == @beat.user_id
-    -# = link_to 'Edit', edit_beat_stem_path(stem)
-    = link_to 'Delete', beat_stem_path(@beat, stem), method: "DELETE", data: {confirm: "Do you really want to delete #{stem.name}?"}
+.stems
+  %h2.headline
+    Important Stems for 
+    = "'" + @beat.name + "'"
+  - @stems.each do |stem|
+    .stem
+      .stem__name
+        = stem.name
+      .stem__audioplayer
+        %audio{ controls: 'controls' }
+          %source{ src: "#{stem.link + "?raw=1"}" }
+      .stem__delete
+      - if current_user.id == @beat.user_id
+        = link_to beat_stem_path(@beat, stem), method: "DELETE", data: { confirm: "Do you really want to delete #{stem.name}?" } do
+          %i.fa.fa-trash-o

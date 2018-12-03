@@ -99,6 +99,13 @@
   &__info {
     color: $dark-grey;
     font-weight: 200;
+
+    &--important {
+      color: $dark-blue;
+      font-weight: 500;
+      display: inline;
+
+    }
   }
 }
 
