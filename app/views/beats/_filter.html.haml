@@ -3,6 +3,6 @@
     .filter__inputs
       = text_field_tag :from_bpm, nil, placeholder: "from BPM", class: "input input--standard"
       = text_field_tag :to_bpm, nil, placeholder: "to BPM", class: "input input--standard"
-      = text_field_tag :key, nil, placeholder: "Key", class: "input input--standard"
+      = select_tag :key, "<option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>A#</option><option>B#</option><option>C#</option><option>E#</option><option>F#</option><option>G#</option><option>Am</option><option>Bm</option><option>Cm</option><option>Dm</option><option>Em</option><option>Fm</option><option>Gm</option><option>A#m</option><option>B#m</option><option>C#m</option><option>E#m</option><option>F#m</option><option>G#m</option>".html_safe, class: 'input input--select', prompt: "Key"
       = text_field_tag :tagged_with, nil, placeholder: "Tags", class: "input input--standard"
       = submit_tag "Filter", class: "button button--standard"

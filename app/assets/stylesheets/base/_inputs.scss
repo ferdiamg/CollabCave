@@ -9,18 +9,31 @@
   // line-height: 3;
   height: 50px;
   padding-left: 15px;
-
-  -webkit-box-shadow: 0px 5px 50px 0px rgba(0,0,0,0.08);
-  -moz-box-shadow: 0px 5px 50px 0px rgba(0,0,0,0.08);
   box-shadow: 0px 5px 50px 0px rgba(0,0,0,0.08);
 
   &--standard {
     color: $dark-blue;
     margin: 10px;
 
-    &:hover {
-    
+    &::placeholder {
+      color: $dark-grey;
+      font-weight: 200;
     }
+  }
+
+  &--select {
+    color: $dark-grey;
+    margin: 10px;
+    background-color: white;
+    /* needed */
+    appearance: none;
+    /* SVG background image */
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='#C4CAD3'><polygon points='0,0 100,0 50,50'/></svg>") no-repeat;
+    background-size: 12px;
+    background-position: calc(100% - 20px) center;
+    background-repeat: no-repeat;
+    font-weight: 200;
+    width: 6em;
 
     &::placeholder {
       color: $dark-grey;
