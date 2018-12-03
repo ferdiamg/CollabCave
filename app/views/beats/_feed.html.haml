@@ -8,15 +8,16 @@
       .feed__beat
         .beat__box
           // Beat-Infos
-          = link_to beat.name, beat_path(beat), class: "beat__title"
-          = beat.bpm
-          = beat.key
-          Type: 
-          = beat.tag_list
-
-          // Beat Player
-          %audio{ controls: 'controls' }
-            %source{ src: "#{beat.link+"?raw=1"}" }
+          = link_to beat.name, beat_path(beat), class: "box__title"
+          .box__info
+            .box__info--key
+              = beat.key
+            .box__info--bpm
+              = beat.bpm.to_s + " BPM"
+          .box__tag-list
+            - beat.tags.each do |artist|
+              .tag-list__artist
+                = artist
 
           .box__interaction
             // Beat likes
@@ -31,12 +32,17 @@
               = link_to edit_beat_path(beat) do
                 %i.fa.fa-pencil
               = link_to beat, method: "DELETE", data: {confirm: "Do you really want to delete #{beat.name}?"} do
-                %i.fa.fa-trash
-              
+                %i.fa.fa-trash-o
+
+          // Beat Player
+          .box__player
+            %audio{ controls: 'controls' }
+              %source{ src: "#{beat.link+"?raw=1"}" }          
+
         .beat__details
-          .beat__details--date
-            created at
-            = beat.created_at.strftime("%a, %d %b %Y %H:%M:%S")
+          -# .beat__details--date
+          -#   created at
+          -#   = beat.created_at.strftime("%a, %d %b %Y %H:%M:%S")
           .beat__details--text
             posted by
           .beat__details--user
