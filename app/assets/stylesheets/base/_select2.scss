@@ -1,5 +1,6 @@
 /********************
 Select2 Override style
+https://codepen.io/techhysahil/pen/qbrqWG
 *********************/
 
 /* Assign min-width to container */
@@ -7,7 +8,7 @@ Select2 Override style
   min-width:300px;
 }
 
-$flat-theme-light-color : $prim-blue;
+$flat-theme-light-color : $dark-grey;
 $flat-theme-dark-color : $prim-red;
 
 .select2-container--open .select2-dropdown--below,
@@ -192,7 +193,25 @@ margin: 4px 0px 0px 0;
     color: $white;
     margin-right: 6px;
     margin-left: 6px;
-    float: right;
+    float: left;
   }
 }
+}
+.select2-search__field {
+  color: $dark-blue;
+  &::-webkit-input-placeholder {
+    color: $dark-grey;
+    font-weight: 200;
+  }
+
+  /* Firefox 18- */
+  &:-moz-placeholder {
+    color: $dark-grey;
+    font-weight: 200;
+  }
+
+  &:-ms-input-placeholder {
+    color: $dark-grey;
+    font-weight: 200;
+  }
 }

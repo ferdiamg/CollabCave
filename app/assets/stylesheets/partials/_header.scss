@@ -8,11 +8,16 @@
 
   &__nav {
     display: flex;
-    
+
+    @include mq(s) {
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+    }
   }
 
   &__item {
-
     &--active {
       font-weight: 500 !important;
     }
@@ -28,6 +33,10 @@
       height: auto;
       display: block;
       
+      @include mq(s) {
+        margin-right: 0;
+        padding-bottom: 30px;
+      }
     }
   }
 
@@ -41,6 +50,10 @@
 
     &:hover {
       color: $prim-blue;
+    }
+
+    @include mq(s) {
+      margin: 0px;
     }
   }
 }
