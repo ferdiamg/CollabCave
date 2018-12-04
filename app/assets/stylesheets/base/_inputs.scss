@@ -10,6 +10,7 @@
   height: 50px;
   padding-left: 15px;
   box-shadow: 0px 5px 50px 0px rgba(0,0,0,0.08);
+  overflow: hidden;
 
   &--standard {
     color: $dark-blue;

@@ -13,6 +13,22 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
   grid-gap: 15px;
+
+  @include mq(l) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+  }
+
+  @include mq(m) {
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+  }
+
+  @include mq(s) {
+    grid-template-columns: 1fr 1fr; 
+  }
+
+  @include mq(x) {
+    grid-template-columns: 1fr; 
+  }
 }
 
 .beat {
@@ -26,11 +42,19 @@
   flex-direction: column;
   transition: all .1s ease-in-out;
 
+  
   margin: 10px;
-
+  
   &:hover {
     transform: scale(1.08);
     box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+  }
+  
+  @include mq(s) {
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    margin: 0 auto;
   }
 
   &__link {
@@ -70,13 +94,20 @@
 .profile-container {
   display: grid;
   grid-template-columns: 1fr 1fr; 
+
+  @include mq(s) {
+    grid-template-columns: 1fr; 
+  }
+  @include mq(m) {
+    grid-template-columns: 1fr; 
+  }
 }
 
 .profile {
   border-radius: 17px;
   box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
   padding: 20px;
-  margin-bottom: 100px;
+  margin-bottom: 6em;
 
   &__button {
     margin: 0 auto;

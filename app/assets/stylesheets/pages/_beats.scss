@@ -9,7 +9,7 @@
   box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
   padding: 20px;
   border-radius: 17px;
-  margin-bottom: 100px;
+  margin-bottom: 6em;
 
   &__beat {
     margin: 50px 30px;
@@ -54,9 +54,6 @@
 }
 
 .tag-list {
-  box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
-  background-color: red;
-
   &__artist {
     padding: 10px 15px;
     border-radius: 12px;
@@ -64,6 +61,12 @@
     color: white;
     font-weight: 200;
     font-size: 1rem;
+    transition: all .1s ease-in-out;
+
+    &:hover {
+      transform: scale(.98);
+      box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.06);
+    }
 
     &:not(:first-child) {
       margin-left: 7px;
@@ -75,6 +78,8 @@
   &__info {
     font-weight: 300;
     display: inline-flex;
+    align-content: center;
+    align-items: center;
 
     &--bpm {
       padding-left: 15px;
@@ -82,16 +87,24 @@
   }
 
   &__tag-list {
-    display: flex;
+    display: inline-flex;
     align-items: flex-end;
     justify-content: flex-end;
     align-content: flex-end;
+    align-self: flex-end;
+    justify-self: flex-end;
+
+    box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+    border-radius: 17px;
+    padding: 5px;
+    width: auto;
   }
 
   &__title {
     text-decoration: none;
     color: $dark-blue;
     font-weight: 600;
+    align-self: center;
 
     &:hover {
       color: $prim-blue;
@@ -122,6 +135,16 @@
   display: grid;
   grid-template-columns: 3fr 1fr 1fr;
 
+  @include mq(m) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include mq(s) {
+    grid-template-columns: 1fr !important;
+  }
+
+  
+
   &__button {
     margin: 0 auto;
     margin-top: 20px;
@@ -145,7 +168,7 @@
   border-radius: 17px;
   box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
   padding: 30px 20px;
-  margin-bottom: 100px;
+  margin-bottom: 6em;
 }
 
 .stem {

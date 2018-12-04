@@ -1,3 +1,23 @@
+@mixin mq($point) {  
+  $mq-special: "(max-width: 520px)";
+  $mq-small: "(max-width: 720px)";
+  $mq-mid: "(max-width: 1250px)";
+  $mq-large: "(max-width: 1600px)";
+
+  @if $point == l {
+    @media #{$mq-large} { @content; }
+  }
+  @else if $point == m {
+    @media #{$mq-mid} { @content; }
+  }
+  @else if $point == s {
+    @media #{$mq-small}  { @content; }
+  }
+  @else if $point == x {
+    @media #{$mq-special}  { @content; }
+  }
+}
+
 $dark-blue: #202837;
 $dark-grey: #C4CAD3;
 $prim-blue: #204CEB;
