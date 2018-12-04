@@ -10,12 +10,6 @@
     = javascript_include_tag 'application'
 
   %body
-    -# - if !flash.empty?
-    -#   .notice
-    -#     = flash[:notice]
-    -#   .alert
-    -#     = flash[:alert]
-
     - flash.each do |key, value|
       = content_tag :div, value, class: "#{key}"
 
@@ -25,14 +19,13 @@
     = render 'layouts/footer' unless @disable_header
 
 :javascript
-  $(document).ready(function() {
-    $('#beat_tag_list').select2({
-      multiple: true,
-      theme: 'classic',
-      tags: true,
-      tokenSeparators: [','],
-      maximumSelectionLength: 3
-    });
+  $('#beat_tag_list').select2({
+    placeholder: 'Tags',
+    multiple: true,
+    theme: 'flat',
+    tags: true,
+    tokenSeparators: [','],
+    maximumSelectionLength: 3
   });
 
 :javascript
