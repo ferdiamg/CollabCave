@@ -14,20 +14,24 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
   grid-gap: 15px;
 
-  @include mq(l) {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+  @media only screen and (max-width: 1680px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 
-  @include mq(m) {
-    grid-template-columns: 1fr 1fr 1fr 1fr; 
+  @media only screen and (max-width: 1420px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 
-  @include mq(s) {
+  @media only screen and (max-width: 1400px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  @media only screen and (max-width: 1140px) {
+    grid-template-columns: 1fr 1fr 1fr; 
+  }
+
+  @media only screen and (max-width: 880px) {
     grid-template-columns: 1fr 1fr; 
-  }
-
-  @include mq(x) {
-    grid-template-columns: 1fr; 
   }
 }
 

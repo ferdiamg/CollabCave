@@ -23,7 +23,7 @@
     padding: 30px 20px;
     
     display: grid;
-    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   &__details {
@@ -62,11 +62,17 @@
     font-weight: 200;
     font-size: 1rem;
     transition: all .1s ease-in-out;
+    text-align: center;
+    overflow: hidden;
 
-    &:hover {
-      transform: scale(.98);
-      box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.06);
-    }
+    max-height: 13px;
+    min-width: 50px;
+    width: auto;
+
+    // &:hover {
+    //   transform: scale(.98);
+    //   box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.06);
+    // }
 
     &:not(:first-child) {
       margin-left: 7px;
@@ -80,6 +86,8 @@
     display: inline-flex;
     align-content: center;
     align-items: center;
+
+    max-width: 130px;
 
     &--bpm {
       padding-left: 15px;
@@ -133,17 +141,11 @@
 
 .beat-inputs {
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-columns: 3fr 6.5em 6.5em;
 
-  @include mq(m) {
-    grid-template-columns: 1fr 1fr;
+  @media only screen and (max-width: 920px) {
+    grid-template-columns: 1fr; 
   }
-
-  @include mq(s) {
-    grid-template-columns: 1fr !important;
-  }
-
-  
 
   &__button {
     margin: 0 auto;
@@ -152,13 +154,36 @@
   }
 }
 
+.beat-inputs-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @media only screen and (max-width: 1000px) {
+    grid-template-columns: 1fr; 
+  }
+}
+
 .filter {
-  width: 50%;
-  margin: 0;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
 
   &__inputs {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 7.5em 7.5em 7.5em 3fr;
+
+    @include mq(m) {
+      grid-template-columns: 7.5em 7.5em 6em 3fr;
+    }
+
+    @media only screen and (max-width: 1160px) {
+      grid-template-columns: 1fr 1fr; 
+    }
+
+    @media only screen and (max-width: 900px) {
+      grid-template-columns: 1fr; 
+    }
   }
 }
 
@@ -215,6 +240,10 @@
 
     &--link {
       flex: 1;
+    }
+
+    @include mq(s) {
+      flex-direction: column;
     }
   }
 

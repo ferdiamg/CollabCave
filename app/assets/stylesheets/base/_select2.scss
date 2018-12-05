@@ -4,8 +4,8 @@ https://codepen.io/techhysahil/pen/qbrqWG
 *********************/
 
 /* Assign min-width to container */
-.select2-container{
-  min-width:300px;
+.select2-container {
+  width: auto !important;
 }
 
 $flat-theme-light-color : $dark-grey;
@@ -199,6 +199,7 @@ margin: 4px 0px 0px 0;
 }
 .select2-search__field {
   color: $dark-blue;
+  width: auto !important;
   &::-webkit-input-placeholder {
     color: $dark-grey;
     font-weight: 200;
