@@ -9,15 +9,18 @@
         .beat__box
           // Beat-Infos
           = link_to beat.name, beat_path(beat), class: "box__title"
+
           .box__info
             .box__info--key
               = beat.key
             .box__info--bpm
               = beat.bpm.to_s + " BPM"
+
           .box__tag-list
             - beat.tags.each do |artist|
               .tag-list__artist
                 = artist
+
 
           .box__interaction
             // Beat likes
@@ -33,7 +36,7 @@
                 %i.fa.fa-pencil
               = link_to beat, method: "DELETE", data: {confirm: "Do you really want to delete #{beat.name}?"} do
                 %i.fa.fa-trash-o
-
+                
           // Beat Player
           .box__player
             %audio{ controls: 'controls' }
