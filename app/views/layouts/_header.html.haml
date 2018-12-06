@@ -10,3 +10,21 @@
       = link_to "Profile", edit_user_path(current_user), class: "#{on_profile}"
     %li.header__item
       = link_to 'Logout', :logout, method: "POST"
+    %li.header__item
+    
+.burger-menu
+  %h1
+    collabcave
+  %input#burger{:type => "checkbox"}
+  %label{:for => "burger"}
+    %span
+    %span
+    %span
+  %nav
+    %ul
+      %li
+        = link_to "Feed", :beats, class: "#{on_feed}"
+      %li
+        = link_to "Profile", edit_user_path(current_user), class: "#{on_profile}"
+      %li
+        = link_to 'Logout', :logout, method: "POST"

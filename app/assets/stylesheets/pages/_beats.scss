@@ -24,6 +24,14 @@
     
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+
+    &--1 {
+
+    }
+
+    &--2 {
+      
+    }
   }
 
   &__details {
@@ -182,7 +190,7 @@
     }
 
     @media only screen and (max-width: 900px) {
-      grid-template-columns: 1fr; 
+      grid-template-columns: 1fr !important; 
     }
   }
 }

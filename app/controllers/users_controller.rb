@@ -22,8 +22,12 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     redirect_to :root unless @user.id == current_user.id
-    if @user.update(user_params)
-      redirect_to edit_user_path, notice: 'Successfully updated your profile.'
+    if @user.valid_password?(user_params[:password])
+      if @user.update(user_params)
+        redirect_to edit_user_path, notice: 'Successfully updated your profile.'
+      else
+        redirect_to edit_user_path, notice: "Couldn't update your profile."
+      end
     else
       redirect_to edit_user_path, notice: "Couldn't update your profile."
     end
