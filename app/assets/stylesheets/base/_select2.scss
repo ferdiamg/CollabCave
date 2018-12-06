@@ -200,13 +200,14 @@ margin: 4px 0px 0px 0;
 .select2-search__field {
   color: $dark-blue;
   width: auto !important;
+  
   &::-webkit-input-placeholder {
     color: $dark-grey;
     font-weight: 200;
   }
 
   /* Firefox 18- */
-  &:-moz-placeholder {
+  &::-moz-placeholder {
     color: $dark-grey;
     font-weight: 200;
   }

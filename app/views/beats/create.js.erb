@@ -1,2 +1,3 @@
+alert("hello");
 $('#likes-count').html('<%= pluralize(@beat.likes.count, 'Like') %>');
 $('#like-button').html('<%= like_button_tag @beat, previous_like %>');

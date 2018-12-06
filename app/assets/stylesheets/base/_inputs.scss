@@ -9,10 +9,9 @@
   margin: 0;
   height: 50px;
   padding-left: 15px;
+  -webkit-appearance: none;
   box-shadow: 0px 5px 50px 0px rgba(0,0,0,0.08);
 
-  @include mq(x) {
-  }
 
   &--standard {
     color: $dark-blue;
