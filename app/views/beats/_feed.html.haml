@@ -27,7 +27,7 @@
               - previous_like = beat.likes.find { |like| like.user_id == current_user.id }
               -# %p#likes-count
               -#   = pluralize(beat.likes.count, 'Like')
-              #like-button
+              #like-button{id: beat.id}
                 = like_button_tag beat, previous_like
                 
               // Beat owner options
