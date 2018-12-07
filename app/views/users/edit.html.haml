@@ -15,7 +15,7 @@
         .beat__producer
           = "@" + like.beat.user.username
 
-        #like-button.beat__like
+        #like-button.beat__like{id: like.beat.id}
           = like_button_tag like.beat, like
 
 .user-beats
