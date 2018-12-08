@@ -8,7 +8,6 @@ ruby '2.5.3'
 gem 'sorcery'
 gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'
 gem 'select2-rails'
-gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 gem 'autoprefixer-rails', '~> 9.3', '>= 9.3.1'
 
 # Standard, extern libraries

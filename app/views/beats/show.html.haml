@@ -41,15 +41,4 @@
       %audio{ controls: 'controls' }
         %source{ src: "#{@beat.link+"?raw=1"}" }          
 
-  -# .beat__details
-  -#   .beat__details--date
-  -#     created at
-  -#     = @beat.created_at.strftime("%a, %d %b %Y %H:%M:%S")
-  -#   .beat__details--text
-  -#     liked by
-  -#   .beat__details--user
-  -#     = @beat.likes.count
-
 = render 'stems_form'
-
--# = button_to 'Back to Feed', :beats, class: "button button--standard center-button"

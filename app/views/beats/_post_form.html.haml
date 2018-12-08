@@ -7,6 +7,6 @@
       = f.text_field :bpm, class: 'input input--standard', placeholder: 'BPM'
       = f.select :key, [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'A#', 'B#', 'C#', 'E#', 'F#', 'G#', 'Am', 'Bm', 'Cm', 'Dm', 'Em', 'Fm', 'Gm', 'A#m', 'B#m', 'C#m', 'E#m', 'F#m', 'G#m' ], { include_blank: 'Key' }, {class: 'input input--select'}
     .beat-inputs-2
-      = f.text_field :link, class: 'input input--standard', placeholder: 'Dropbox-Link'
+      = f.text_field :link, class: 'input input--standard', placeholder: 'Dropbox-Link', pattern: '.*\.(?:mp3|ogg|wav)$', title: "Link must end on either .mp3, .wav or .ogg!"
       = f.collection_select :tag_list, ActsAsTaggableOn::Tag.all, :name, :name, {}, multiple: true  
     = f.submit "Post Beat", class: "button button--standard beat-inputs__button"

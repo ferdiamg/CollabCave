@@ -3,12 +3,14 @@
 %section.login
   .login__box
     = image_tag "collabcave_logo.svg", alt: "CollabCave Logo", class: "login__logo"
-    -# = render "form", button_text: "Register"
 
     = form_for @user, :html => { class: "login__form" } do |f|
       .login__input
         .login__field-wrapper
-          = f.text_field :email, placeholder: " ", class: "login__field"
+          = text_field_tag :beta_key, "", class: "login__field", placeholder: " "
+          = label_tag :beta_key
+        .login__field-wrapper
+          = f.text_field :email, placeholder: " ", class: "login__field", type: "email"
           = f.label :email
         .login__field-wrapper
           = f.text_field :username, placeholder: " ", class: "login__field"

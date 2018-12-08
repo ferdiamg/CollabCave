@@ -3,15 +3,23 @@
   align-items: center;
   justify-content: center;
 
-  border: 0;
+  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
+  
+  border: 0;
   border-radius: 13px;
   margin: 0;
   height: 50px;
   padding-left: 15px;
   -webkit-appearance: none;
-  box-shadow: 0px 5px 50px 0px rgba(0,0,0,0.08);
+  // box-shadow: 0px 5px 50px 0px rgba(0,0,0,0.08);
+  box-shadow: 0px 12px 49px rgba(0, 0, 0, 0.07);
 
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0px 12px 49px rgba(0, 0, 0, 0.09);
+  }
 
   &--standard {
     color: $dark-blue;

@@ -10,7 +10,7 @@
   %h2.headline Your favorites
   .item-container
     - @user.likes.each do |like|
-      .beat
+      .beat.js-hideOnDislike
         = link_to like.beat.name, beat_path(like.beat), class: "beat__link"
         .beat__producer
           = "@" + like.beat.user.username

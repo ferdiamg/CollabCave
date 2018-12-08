@@ -1,13 +1,5 @@
 class StemsController < ApplicationController
 
-  def index
-    @stems = Stem.all
-  end
-
-  def show
-    @stem = Stem.find(params[:id])
-  end
-
   def new
     @stem = Stem.new
   end
@@ -16,9 +8,9 @@ class StemsController < ApplicationController
     @beat = Beat.find(params[:beat_id])
     @stem = @beat.stems.new(stem_params)
     if @stem.save
-      redirect_to :root
+      redirect_to @beat, notice: "Successfully added a stem to #{@beat.name}"
     else
-      redirect_to :beats
+      redirect_to @beat, alert: "Couldn't add a stem to #{@beat.name}"
     end
   end
 
@@ -26,9 +18,9 @@ class StemsController < ApplicationController
     @beat = Beat.find(params[:beat_id])
     @stem = @beat.stems.find(params[:id])
     if @stem.destroy
-      redirect_to :beats
+      redirect_to @beat, notice: "Successfully added a stem to #{@beat.name}"
     else
-      redirect_to :root
+      redirect_to @beat
     end
   end
 

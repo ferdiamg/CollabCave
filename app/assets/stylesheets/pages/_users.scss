@@ -1,11 +1,12 @@
 .favorites {
-  box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+  // box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+  box-shadow: 0px 12px 49px rgba(0, 0, 0, 0.09);
   padding: 20px;
   margin-bottom: 40px;
 }
 
 .user-beats {
-  box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+  box-shadow: 0px 12px 49px rgba(0, 0, 0, 0.09);
   padding: 20px;
 }
 
@@ -38,7 +39,9 @@
 .beat {
   height: 100px;
   width: 100px;
-  box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.05);
+  // box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.05);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+
 
   display: flex;
   justify-content: center;

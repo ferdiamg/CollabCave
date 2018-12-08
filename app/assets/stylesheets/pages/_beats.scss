@@ -1,12 +1,12 @@
 .form {
   padding: 20px;
   border-radius: 17px;
-  box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+  box-shadow: 0px 12px 49px rgba(0, 0, 0, 0.09);
   margin-bottom: 2.5em;
 }
 
 .feed {
-  box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+  box-shadow: 0px 12px 49px rgba(0, 0, 0, 0.09);
   padding: 20px;
   border-radius: 17px;
   margin-bottom: 6em;
@@ -19,19 +19,11 @@
 .beat {
   &__box {
     border-radius: 17px;
-    box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+    box-shadow: 0px 12px 49px rgba(0, 0, 0, 0.09);
     padding: 30px 20px;
     
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-
-    &--1 {
-
-    }
-
-    &--2 {
-      
-    }
   }
 
   &__details {
@@ -110,7 +102,7 @@
     align-self: flex-end;
     justify-self: flex-end;
 
-    box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+    box-shadow: 0px 12px 49px rgba(0, 0, 0, 0.09);
     border-radius: 17px;
     padding: 5px;
     width: auto;
@@ -191,6 +183,7 @@
 
     @media only screen and (max-width: 900px) {
       grid-template-columns: 1fr !important; 
+      width: 100%;
     }
   }
 }
@@ -199,7 +192,7 @@
   width: 75%;
   margin: 0 auto;
   border-radius: 17px;
-  box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+  box-shadow: 0px 12px 49px rgba(0, 0, 0, 0.09);
   padding: 30px 20px;
   margin-bottom: 6em;
 }
@@ -231,7 +224,7 @@
   width: 75%;
   margin: 0 auto;
   border-radius: 17px;
-  box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.10);
+  box-shadow: 0px 12px 49px rgba(0, 0, 0, 0.09);
   padding: 30px 20px;
 
   margin-bottom: 40px;
