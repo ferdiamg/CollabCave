@@ -26,9 +26,9 @@ class BeatsController < ApplicationController
     @beat = @user.beats.new(beat_params)
     @beat.tag_list = params[:beat][:tag_list].join(',')
     if @beat.save
-      redirect_to :beats, notice: "Beat was successfully created"
+      redirect_to :beats, notice: "Beat was successfully created."
     else
-      redirect_to :beats, alert: "Beat couldn't be created"
+      redirect_to :beats, alert: "Beat couldn't be created!"
     end
   end
 
@@ -43,9 +43,9 @@ class BeatsController < ApplicationController
     redirect_to :root unless @beat.user == current_user
     @beat.tag_list = params[:beat][:tag_list]
     if @beat.update(beat_params)
-      redirect_to :beats, notice: "Beat was successfully updated"
+      redirect_to :beats, notice: "Beat was successfully updated."
     else
-      redirect_to :beats, notice: "Beat was successfully updated"
+      redirect_to :beats, notice: "Beat was successfully updated."
     end
   end
 
@@ -53,9 +53,9 @@ class BeatsController < ApplicationController
     @beat = Beat.find(params[:id])
     redirect_to :root unless @beat.user == current_user
     if @beat.destroy
-      redirect_to :beats, notice: "Beat was successfully removed"
+      redirect_to :beats, notice: "Beat was successfully removed."
     else
-      redirect_to :beats, alert: "Beat couldn't be removed"
+      redirect_to :beats, alert: "Beat couldn't be removed!"
     end
   end
 

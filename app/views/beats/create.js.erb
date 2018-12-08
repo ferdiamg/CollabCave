@@ -1,2 +1,2 @@
 $('#like-button_<%= @beat.id %>').html('<%= like_button_tag(@beat, @beat.likes.last) %>');
-$('')
+$('#like-button_<%= @beat.id %>').closest('.js-hideOnDislike').hide();

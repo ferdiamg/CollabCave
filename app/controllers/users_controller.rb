@@ -7,10 +7,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to :users, notice: 'Successfully registered.'
+    if params[:beta_key] == "CC2018"
+      @user = User.new(user_params)
+      if @user.save
+        redirect_to :beats, notice: 'Successfully registered.'
+      else
+        redirect_to :register, alert: @user.errors.full_messages
+      end
     else
+      redirect_to :register, alert: "Wrong Beta Key!"
     end
   end
 
@@ -26,10 +31,10 @@ class UsersController < ApplicationController
       if @user.update(user_params)
         redirect_to edit_user_path, notice: 'Successfully updated your profile.'
       else
-        redirect_to edit_user_path, notice: "Couldn't update your profile."
+        redirect_to edit_user_path, notice: "Couldn't update your profile!"
       end
     else
-      redirect_to edit_user_path, notice: "Couldn't update your profile."
+      redirect_to edit_user_path, notice: "Couldn't update your profile!"
     end
   end
 
@@ -39,7 +44,7 @@ class UsersController < ApplicationController
     if @user.destroy
       redirect_to :root, notice: 'Thats sad, see you soon!'
     else 
-      redirect_to edit_user_path, notice: "Account couldn't be deleted"
+      redirect_to edit_user_path, notice: "Account couldn't be deleted!"
     end
   end
 
