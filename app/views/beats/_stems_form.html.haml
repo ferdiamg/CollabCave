@@ -22,5 +22,5 @@
           %source{ src: "#{stem.link + "?raw=1"}" }
       .stem__delete
       - if current_user.id == @beat.user_id
-        = link_to beat_stem_path(@beat, stem), method: "DELETE", data: { confirm: "Do you really want to delete #{stem.name}?" } do
-          %i.fa.fa-trash-o
+        = link_to beat_stem_path(@beat, stem), method: "DELETE", data: { confirm: "Do you really want to delete #{stem.name}?" }, class: "icon" do
+          = image_tag "bin.svg"

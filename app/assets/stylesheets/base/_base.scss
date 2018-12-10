@@ -77,10 +77,13 @@ body {
 }
 
 .icon {
-  height: 1.1em;
 
   img {
     height: 1.1em;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 }
 
@@ -92,6 +95,7 @@ body {
   background-position: left;
   background-repeat: no-repeat;
   background-size: 2900%;
+
 }
 
 .heart:hover {
@@ -104,5 +108,5 @@ body {
 
 @keyframes heart-burst {
   from {background-position:left;}
-  to { background-position:right;}
+  to {background-position:right;}
  }

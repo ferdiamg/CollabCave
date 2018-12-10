@@ -29,10 +29,20 @@
     maximumSelectionLength: 3
   });
 
-:javascript
   $(function() {
     setTimeout(function(){
       $('.notice').slideUp(500);
       $('.alert').slideUp(500);
     }, 1000);
   });
+
+  $(".heart").wrap("<div class='heart-container'></div>");
+
+  $('.heart').on('click', function(){
+    $(this).toggleClass('is_animating');
+  });
+  $('.heart').on('animationend', function(){
+    $(this).toggleClass('is_animating');
+  });
+
+  
