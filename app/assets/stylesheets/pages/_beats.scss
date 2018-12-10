@@ -23,7 +23,14 @@
     padding: 30px 20px;
     
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    &--1 {
+      display: flex;
+      align-content: space-between;
+      justify-content: space-between;
+      margin-bottom: 1.5em;
+    }
   }
 
   &__details {
@@ -120,7 +127,7 @@
   }
 
   &__interaction {
-    display: flex;
+    display: inline-flex;
     justify-content: flex-start;
     align-items: flex-end;
 
@@ -172,10 +179,6 @@
   &__inputs {
     display: grid;
     grid-template-columns: 7.5em 7.5em 7.5em 3fr;
-
-    @include mq(m) {
-      grid-template-columns: 7.5em 7.5em 6em 3fr;
-    }
 
     @media only screen and (max-width: 1160px) {
       grid-template-columns: 1fr 1fr; 
@@ -234,16 +237,19 @@
     justify-content: center;
     align-items: center;
     align-content: center;
+    
 
     &--name {
       flex: 1;
+      width: 90%;
     }
 
     &--link {
       flex: 1;
+      width: 90%;
     }
 
-    @include mq(s) {
+    @include mq(m) {
       flex-direction: column;
     }
   }

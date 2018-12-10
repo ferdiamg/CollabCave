@@ -1,6 +1,5 @@
 .feed
   %h2.headline Feed
-  .heart
 
   - if @beats
     = render "filter"
@@ -33,17 +32,15 @@
                 
               // Beat owner options
               - if current_user.id == beat.user_id  
-                = link_to edit_beat_path(beat) do
-                  -# %i.fa.fa-pencil
-                  = image_tag "pencil.svg", class: "icon"
-                = link_to beat, method: "DELETE", data: {confirm: "Do you really want to delete #{beat.name}?"} do
-                  -# %i.fa.fa-trash-o
-                  = image_tag "bin.svg", class: "icon"
+                = link_to edit_beat_path(beat), class: "icon" do
+                  = image_tag "pencil.svg"
+                = link_to beat, method: "DELETE", data: {confirm: "Do you really want to delete #{beat.name}?"}, class: "icon" do
+                  = image_tag "bin.svg"
                 
-          // Beat Player
-          .box__player
-            %audio{ controls: 'controls' }
-              %source{ src: "#{beat.link+"?raw=1"}" }          
+            // Beat Player
+            .box__player
+              %audio{ controls: 'controls' }
+                %source{ src: "#{beat.link+"?raw=1"}" }          
 
         .beat__details
           -# .beat__details--date
@@ -53,11 +50,3 @@
             posted by
           .beat__details--user
             = "@" + User.find(beat.user_id).username
-
-:javascript
-  $('.heart').on('click', function(){
-    $(this).toggleClass('is_animating');
-  });
-  $('.heart').on('animationend', function(){
-    $(this).toggleClass('is_animating');
-  });

@@ -9,36 +9,37 @@
 
 .feed__beat
   .beat__box
-    // Beat-Infos
-    = link_to @beat.name, beat_path(@beat), class: "box__title"
-    .box__info
-      .box__info--key
-        = @beat.key
-      .box__info--bpm
-        = @beat.bpm.to_s + " BPM"
-    .box__tag-list
-      - @beat.tags.each do |artist|
-        .tag-list__artist
-          = artist
+    .beat__box--1
+      // Beat-Infos
+      = link_to @beat.name, beat_path(@beat), class: "box__title"
+      .box__info
+        .box__info--key
+          = @beat.key
+        .box__info--bpm
+          = @beat.bpm.to_s + " BPM"
+      .box__tag-list
+        - @beat.tags.each do |artist|
+          .tag-list__artist
+            = artist
+    .beat__box--1
+      .box__interaction
+        // Beat likes
+        - previous_like = @beat.likes.find { |like| like.user_id == current_user.id }
+        -# %p#likes-count
+        -#   = pluralize(beat.likes.count, 'Like')
+        #like-button{id: @beat.id}
+          = like_button_tag @beat, previous_like
+          
+        // Beat owner options
+        - if current_user.id == @beat.user_id  
+          = link_to edit_beat_path(@beat), class: "icon" do
+            = image_tag "pencil.svg"
+          = link_to @beat, method: "DELETE", data: {confirm: "Do you really want to delete #{@beat.name}?"}, class: "icon" do
+            = image_tag "bin.svg"
 
-    .box__interaction
-      // Beat likes
-      - previous_like = @beat.likes.find { |like| like.user_id == current_user.id }
-      -# %p#likes-count
-      -#   = pluralize(beat.likes.count, 'Like')
-      #like-button{id: @beat.id}
-        = like_button_tag @beat, previous_like
-        
-      // Beat owner options
-      - if current_user.id == @beat.user_id  
-        = link_to edit_beat_path(@beat) do
-          %i.fa.fa-pencil
-        = link_to @beat, method: "DELETE", data: {confirm: "Do you really want to delete #{@beat.name}?"} do
-          %i.fa.fa-trash-o
-
-    // Beat Player
-    .box__player
-      %audio{ controls: 'controls' }
-        %source{ src: "#{@beat.link+"?raw=1"}" }          
+        // Beat Player
+        .box__player
+          %audio{ controls: 'controls' }
+            %source{ src: "#{@beat.link+"?raw=1"}" }          
 
 = render 'stems_form'
