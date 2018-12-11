@@ -1,6 +1,6 @@
 body {
   background-color: $white;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif !important;
 
   display: flex;
   min-height: 100vh;
@@ -109,4 +109,25 @@ body {
 @keyframes heart-burst {
   from {background-position:left;}
   to {background-position:right;}
+ }
+
+ .plyr {
+  border-radius: 17px;
+ }
+
+ .plyr__controls {
+   
+   box-shadow: 0px 12px 49px rgba(0, 0, 0, 0.07);
+ }
+
+ .plyr--full-ui input[type=range] {
+   color: $prim-blue !important;
+ }
+
+ .plyr--audio .plyr__control.plyr__tab-focus, .plyr--audio .plyr__control:hover, .plyr--audio .plyr__control[aria-expanded=true] {
+   background: $prim-blue;
+ }
+
+ .plyr__menu__container .plyr__control[role=menuitemradio][aria-checked=true]::before {
+   background: $prim-blue;
  }

@@ -25,11 +25,34 @@
     display: grid;
     grid-template-rows: 1fr 1fr;
 
+    @media only screen and (max-width: 830px) {
+      grid-template-rows: 1fr;
+    }
+
     &--1 {
       display: flex;
       align-content: space-between;
       justify-content: space-between;
       margin-bottom: 1.5em;
+
+      @media only screen and (max-width: 830px) {
+        margin-bottom: 0;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    &--2 {
+      display: flex;
+      align-content: center;
+      justify-content: space-between;
+      align-items: center;
+
+      @media only screen and (max-width: 830px) {
+        flex-direction: column;
+      }
     }
   }
 
@@ -38,6 +61,10 @@
     justify-content: flex-end;
     padding-top: 12px;
     font-size: 0.85rem;
+
+    @media only screen and (max-width: 830px) {
+      justify-content: center;
+    }
 
     &--date {
       color: $dark-grey;
@@ -71,18 +98,28 @@
     transition: all .1s ease-in-out;
     text-align: center;
     overflow: hidden;
-
-    max-height: 13px;
     min-width: 50px;
     width: auto;
 
-    // &:hover {
-    //   transform: scale(.98);
-    //   box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.06);
-    // }
+    @media only screen and (max-width: 830px) {
+      margin-bottom: 0.2em;
+    }
+
+    &:hover {
+      transform: scale(.95);
+      box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.06);
+    }
 
     &:not(:first-child) {
       margin-left: 7px;
+    }
+
+    @include mq(s) {
+
+      &:not(:first-child) {
+        margin-left: 0;
+        align-self: center;
+      }
     }
   }
 }
@@ -113,6 +150,11 @@
     border-radius: 17px;
     padding: 5px;
     width: auto;
+
+    @media only screen and (max-width: 830px) {
+      align-self: center;
+      flex-direction: column;
+    }
   }
 
   &__title {
@@ -121,6 +163,10 @@
     font-weight: 600;
     align-self: center;
 
+    @media only screen and (max-width: 830px) {
+      margin-bottom: 1em;
+    }
+
     &:hover {
       color: $prim-blue;
     }
@@ -128,8 +174,13 @@
 
   &__interaction {
     display: inline-flex;
-    justify-content: flex-start;
-    align-items: flex-end;
+    
+
+    
+    @media only screen and (max-width: 830px) {
+      margin-bottom: 2em;
+      margin-top: 1em;
+    }
 
     a {
       text-decoration: none;
@@ -143,6 +194,14 @@
         color: lighten($prim-blue, 10%);
       }
     }
+  }
+
+  &__player {
+    display: inline-flex;
+
+    // @media only screen and (max-width: 920px) {
+    //   display: none;
+    // }
   }
 }
 
