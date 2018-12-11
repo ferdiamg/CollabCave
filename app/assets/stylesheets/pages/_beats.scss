@@ -133,6 +133,10 @@
 
     max-width: 130px;
 
+    @media only screen and (max-width: 830px) {
+      margin-bottom: 1em;
+    }
+
     &--bpm {
       padding-left: 15px;
     }
@@ -164,7 +168,7 @@
     align-self: center;
 
     @media only screen and (max-width: 830px) {
-      margin-bottom: 1em;
+      margin-bottom: 0.5em;
     }
 
     &:hover {
@@ -175,10 +179,8 @@
   &__interaction {
     display: inline-flex;
     
-
-    
     @media only screen and (max-width: 830px) {
-      margin-bottom: 2em;
+      margin-bottom: 1em;
       margin-top: 1em;
     }
 
@@ -198,10 +200,6 @@
 
   &__player {
     display: inline-flex;
-
-    // @media only screen and (max-width: 920px) {
-    //   display: none;
-    // }
   }
 }
 
@@ -212,7 +210,7 @@
 
   @media only screen and (max-width: 920px) {
     grid-template-columns: 1fr; 
-    grid-gap: 15px;
+    grid-gap: 0;
   }
 
   &__button {
@@ -229,7 +227,7 @@
 
   @media only screen and (max-width: 1000px) {
     grid-template-columns: 1fr; 
-    grid-gap: 15px;
+    grid-gap: 0;
   }
 }
 
@@ -251,7 +249,7 @@
 
     @media only screen and (max-width: 900px) {
       grid-template-columns: 1fr !important; 
-      grid-gap: 15px;
+      grid-gap: 0;
       width: 100%;
     }
   }
