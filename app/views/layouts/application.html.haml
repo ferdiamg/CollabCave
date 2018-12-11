@@ -23,16 +23,6 @@
     %script{:src => "https://cdn.rangetouch.com/1.0.5/rangetouch.js"}
 
 :javascript
-  $('#beat_tag_list').select2({
-    placeholder: 'Artists',
-    multiple: true,
-    theme: 'flat',
-    tags: true,
-    width: '100%',
-    tokenSeparators: [','],
-    maximumSelectionLength: 3
-  });
-
   $(function() {
     setTimeout(function(){
       $('.notice').slideUp(500);
@@ -41,7 +31,6 @@
   });
 
   $(".heart").wrap("<div class='heart-container'></div>");
-
   $('.heart').on('click', function(){
     $(this).toggleClass('is_animating');
   });
@@ -53,20 +42,26 @@
   if ($(window).width() <= 460) {
     const players = Array.from(document.querySelectorAll('#player')).map(p => new Plyr(p, {
       controls: [
-        'play', // Play/pause playback
+        'play',
       ]
     }));
   } else {
     const players = Array.from(document.querySelectorAll('#player')).map(p => new Plyr(p, {
       controls: [
-        'play', // Play/pause playback
-        'current-time', // The current time of playback
-        'volume', // Volume control
-        'download', // Show a download button with a link to either the current source or a custom URL you specify in your options
+        'play',
+        'current-time',
+        'volume',
+        'download',
       ]
     }));
   }
-
   
-
-  
+  $('#beat_tag_list').select2({
+    placeholder: 'Artists',
+    multiple: true,
+    theme: 'flat',
+    tags: true,
+    width: '100%',
+    tokenSeparators: [','],
+    maximumSelectionLength: 3
+  });
