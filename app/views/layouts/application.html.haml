@@ -49,4 +49,24 @@
     $(this).toggleClass('is_animating');
   });
   
-  const players = Array.from(document.querySelectorAll('#player')).map(p => new Plyr(p));
+  
+  if ($(window).width() <= 460) {
+    const players = Array.from(document.querySelectorAll('#player')).map(p => new Plyr(p, {
+      controls: [
+        'play', // Play/pause playback
+      ]
+    }));
+  } else {
+    const players = Array.from(document.querySelectorAll('#player')).map(p => new Plyr(p, {
+      controls: [
+        'play', // Play/pause playback
+        'current-time', // The current time of playback
+        'volume', // Volume control
+        'download', // Show a download button with a link to either the current source or a custom URL you specify in your options
+      ]
+    }));
+  }
+
+  
+
+  
