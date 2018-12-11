@@ -12,20 +12,23 @@
 
 ActiveRecord::Schema.define(version: 2018_11_26_114136) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "beats", force: :cascade do |t|
     t.string "name"
     t.integer "bpm"
     t.string "key"
     t.string "link"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_beats_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "beat_id"
-    t.integer "user_id"
+    t.bigint "beat_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["beat_id"], name: "index_likes_on_beat_id"
@@ -35,13 +38,13 @@ ActiveRecord::Schema.define(version: 2018_11_26_114136) do
   create_table "stems", force: :cascade do |t|
     t.string "name"
     t.string "link"
-    t.integer "beat_id"
+    t.bigint "beat_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["beat_id"], name: "index_stems_on_beat_id"
   end
 
-  create_table "taggings", force: :cascade do |t|
+  create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
     t.integer "taggable_id"
@@ -60,7 +63,7 @@ ActiveRecord::Schema.define(version: 2018_11_26_114136) do
     t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
   end
 
-  create_table "tags", force: :cascade do |t|
+  create_table "tags", id: :serial, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -86,4 +89,8 @@ ActiveRecord::Schema.define(version: 2018_11_26_114136) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "likes", "beats"
+  add_foreign_key "likes", "users"
+  add_foreign_key "stems", "beats"
+  add_foreign_key "taggings", "tags"
 end
