@@ -5,7 +5,7 @@ https://codepen.io/techhysahil/pen/qbrqWG
 
 /* Assign min-width to container */
 .select2-container {
-  width: auto !important;
+  // width: auto !important;
 }
 
 $flat-theme-light-color : $dark-grey;
@@ -59,6 +59,7 @@ span.select2-search{
   border-radius: 0px ;
   font-size: 14px;
   text-indent: 1px;
+  margin-top: 0 !important;
 
   box-shadow: none;
   background-image: none;
@@ -159,11 +160,11 @@ margin: 4px 0px 0px 0;
   align-items: center;
   justify-content: center;
   margin: 0;
-  // line-height: 3;
   height: 50px;
-  padding-left: 15px;
   box-shadow: 0px 5px 50px 0px rgba(0,0,0,0.08);
-  margin: 10px;
+  margin: 10px 0;
+
+  // padding-left: 15px;
 
   .select2-selection__choice__remove:hover{
     color: darken($white, 10%);
@@ -172,7 +173,9 @@ margin: 4px 0px 0px 0;
   .select2-selection__rendered {
     box-sizing: border-box;
     list-style: none;
-    margin: 0;
+    // margin: 0;
+    /* Placeholder in 10px */
+    margin: 0 10px;
     padding: 0 5px;
     width: 100%;
   }
@@ -187,7 +190,7 @@ margin: 4px 0px 0px 0;
     cursor: default;
     float: left;
     margin-right: 5px;
-    margin-top: 5px;
+    margin-top: 0;
   }
   .select2-selection__choice__remove{
     color: $white;
@@ -198,8 +201,9 @@ margin: 4px 0px 0px 0;
 }
 }
 .select2-search__field {
+  width: 100% !important;
   color: $dark-blue;
-  width: auto !important;
+  // width: auto !important;
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   margin-top: 0 !important;

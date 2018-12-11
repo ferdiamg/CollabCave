@@ -21,7 +21,7 @@
         - @beat.tags.each do |artist|
           .tag-list__artist
             = artist
-    .beat__box--1
+    .beat__box--2
       .box__interaction
         // Beat likes
         - previous_like = @beat.likes.find { |like| like.user_id == current_user.id }
@@ -38,8 +38,8 @@
             = image_tag "bin.svg"
 
         // Beat Player
-        .box__player
-          %audio{ controls: 'controls' }
-            %source{ src: "#{@beat.link+"?raw=1"}" }          
+      .box__player
+        %audio#player{ controls: '' }
+          %source{ src: "#{@beat.link+"?raw=1"}", type: "audio/mp3" }          
 
 = render 'stems_form'

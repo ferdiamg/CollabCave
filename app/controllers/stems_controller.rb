@@ -8,9 +8,9 @@ class StemsController < ApplicationController
     @beat = Beat.find(params[:beat_id])
     @stem = @beat.stems.new(stem_params)
     if @stem.save
-      redirect_to @beat, notice: "Successfully added a stem to #{@beat.name}"
+      redirect_to @beat, notice: "Successfully added #{@stem.name} to #{@beat.name}"
     else
-      redirect_to @beat, alert: "Couldn't add a stem to #{@beat.name}"
+      redirect_to @beat, alert: "Couldn't add #{@stem.name} to #{@beat.name}"
     end
   end
 

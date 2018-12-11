@@ -65,6 +65,7 @@
     border-left: none;
     border-right: none;
     border-bottom: 2px solid $dark-grey;
+    border-radius: 0;
     outline: none;
 
     &--password {
@@ -124,6 +125,8 @@
     width: 100%;
 
     label, input {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
       transition: all 0.2s;
       touch-action: manipulation;
     }
