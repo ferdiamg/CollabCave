@@ -20,12 +20,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
     redirect_to :root unless @user.id == current_user.id
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
     redirect_to :root unless @user.id == current_user.id
     if @user.valid_password?(user_params[:password])
       if @user.update(user_params)
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
     redirect_to :root unless @user.id == current_user.id
     if @user.destroy
       redirect_to :root, notice: 'Thats sad, see you soon!'

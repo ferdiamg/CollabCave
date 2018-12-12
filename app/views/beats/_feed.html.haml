@@ -27,7 +27,7 @@
               - previous_like = beat.likes.find { |like| like.user_id == current_user.id }
               -# %p#likes-count
               -#   = pluralize(beat.likes.count, 'Like')
-              #like-button{id: beat.id}
+              #like-button{id: beat.attributes["id"]}
                 = like_button_tag beat, previous_like
               
               -# = link_to beat.link, class: "icon" do
