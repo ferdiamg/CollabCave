@@ -5,7 +5,7 @@ class StemsController < ApplicationController
   end
 
   def create
-    @beat = Beat.find(params[:beat_id])
+    @beat = Beat.friendly.find(params[:beat_id])
     @stem = @beat.stems.new(stem_params)
     if @stem.save
       redirect_to @beat, notice: "Successfully added #{@stem.name} to #{@beat.name}"
@@ -15,7 +15,7 @@ class StemsController < ApplicationController
   end
 
   def destroy
-    @beat = Beat.find(params[:beat_id])
+    @beat = Beat.friendly.find(params[:beat_id])
     @stem = @beat.stems.find(params[:id])
     if @stem.destroy
       redirect_to @beat, notice: "Successfully added a stem to #{@beat.name}"
