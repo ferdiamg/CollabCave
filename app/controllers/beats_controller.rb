@@ -13,7 +13,7 @@ class BeatsController < ApplicationController
   end
 
   def show
-    @beat = Beat.find(params[:id])
+    @beat = Beat.friendly.find(params[:id])
     @stems = @beat.stems.all
   end
 
@@ -33,13 +33,13 @@ class BeatsController < ApplicationController
   end
 
   def edit
-    @beat = Beat.find(params[:id])
+    @beat = Beat.friendly.find(params[:id])
     redirect_to :root unless @beat.user == current_user
     @stems = @beat.stems.all
   end
 
   def update
-    @beat = Beat.find(params[:id])
+    @beat = Beat.friendly.find(params[:id])
     redirect_to :root unless @beat.user == current_user
     @beat.tag_list = params[:beat][:tag_list]
     if @beat.update(beat_params)
@@ -50,7 +50,7 @@ class BeatsController < ApplicationController
   end
 
   def destroy
-    @beat = Beat.find(params[:id])
+    @beat = Beat.friendly.find(params[:id])
     redirect_to :root unless @beat.user == current_user
     if @beat.destroy
       redirect_to :beats, notice: "Beat was successfully removed."

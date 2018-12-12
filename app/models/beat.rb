@@ -1,4 +1,7 @@
 class Beat < ApplicationRecord
+  extend FriendlyId
+  friendly_id :slug_candidates, use: :slugged
+
   validates :name, length: { minimum: 3, maximum: 15 }
   validates :bpm, format: { with: /\A\d+\z/ }, length: { maximum: 3 }
   validates :key, length: { maximum: 3 }
@@ -15,4 +18,10 @@ class Beat < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :stems, dependent: :destroy
   belongs_to :user
+
+  def slug_candidates
+    [
+      [:name, :bpm, :key]
+    ]
+  end
 end
