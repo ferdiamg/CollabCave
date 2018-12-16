@@ -49,7 +49,8 @@
     const players = Array.from(document.querySelectorAll('#player')).map(p => new Plyr(p, {
       controls: [
         'play',
-        'current-time',
+        'progress',
+        'duration',
         'volume',
         'download',
       ]

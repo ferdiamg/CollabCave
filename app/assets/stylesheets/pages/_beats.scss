@@ -308,11 +308,19 @@
     &--name {
       flex: 1;
       width: 90%;
+      margin: 10px;
+
+      
     }
 
     &--link {
       flex: 1;
       width: 90%;
+      margin: 10px;
+
+      @include mq(m) {
+        margin: 0;
+      }
     }
 
     @include mq(m) {
