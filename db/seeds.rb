@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create(email: 'ferdiarmagan@web.de', username: 'ferdi_amg', password: 'ferdiamg', password_confirmation: 'ferdiamg')
-User.create(email: 'maikreinicke@yahoo.de', username: 'prodbykendox', password: 'maik123', password_confirmation: 'maik123')
+# User.create(email: 'maikreinicke@yahoo.de', username: 'prodbykendox', password: 'maik123', password_confirmation: 'maik123')
 
 @beat1 = Beat.find_or_create_by(name: 'Astro', bpm: '130', key: 'F#m', link: 'https://www.dropbox.com/s/8lnnk2ts0wimhnw/Cartii%20Yachty%20C%20Minor%20150BPM%20v2.mp3', user_id: 1)
 @beat2 = Beat.find_or_create_by(name: 'Fuego', bpm: '144', key: 'D#m', link: 'https://www.dropbox.com/s/8lnnk2ts0wimhnw/Cartii%20Yachty%20C%20Minor%20150BPM%20v2.mp3', user_id: 1)
-@beat3 = Beat.find_or_create_by(name: 'Aliens', bpm: '150', key: 'F#', link: 'https://www.dropbox.com/s/huo1u4d57ubl44k/G%23%20Minor%20PartyNextDoor%20Type%20Beat%20Wus%20Good.mp3', user_id: 2)
+# @beat3 = Beat.find_or_create_by(name: 'Aliens', bpm: '150', key: 'F#', link: 'https://www.dropbox.com/s/huo1u4d57ubl44k/G%23%20Minor%20PartyNextDoor%20Type%20Beat%20Wus%20Good.mp3', user_id: 2)
 
 @beat1.tag_list.add("Travis Scott")
 @beat1.save
@@ -18,9 +18,9 @@ User.create(email: 'maikreinicke@yahoo.de', username: 'prodbykendox', password: 
 @beat2.tag_list.add("Drake")
 @beat2.save
 
-@beat3.tag_list.add("Playboi Carti")
-@beat3.tag_list.add("Rich The Kid")
-@beat3.save
+# @beat3.tag_list.add("Playboi Carti")
+# @beat3.tag_list.add("Rich The Kid")
+# @beat3.save
 
 list = ['21 Savage',
         '2 Chainz',

@@ -14,7 +14,6 @@ class Beat < ApplicationRecord
   acts_as_taggable # Alias for acts_as_taggable_on :tags
   acts_as_taggable_on :artists
 
-  has_many :artists
   has_many :likes, dependent: :destroy
   has_many :stems, dependent: :destroy
   belongs_to :user
