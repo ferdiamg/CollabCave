@@ -339,3 +339,20 @@
     // margin-bottom: 10px;
   }
 }
+
+.delete-link {
+  display: flex;
+  justify-content: center;
+  padding-top: 1em;
+
+  a {
+    color: $dark-grey;
+    text-decoration: none;
+    margin: 0 auto;
+
+    &:hover {
+      color: $prim-red;
+    }
+  }
+  
+}
