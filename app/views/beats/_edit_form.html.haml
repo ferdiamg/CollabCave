@@ -10,3 +10,5 @@
       = f.text_field :link, class: 'input input--standard', placeholder: 'Dropbox-Link'
       = f.text_field :tag_list, value: @beat.tag_list.join(", "), class: 'input input--standard'
     = f.submit "Edit Beat", class: "button button--standard beat-inputs__button"
+    .delete-link
+      = link_to "Delete", @beat, method: "DELETE", data: {confirm: "Do you really want to delete #{@beat.name}?"}
