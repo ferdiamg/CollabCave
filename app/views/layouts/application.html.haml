@@ -56,6 +56,13 @@
       ]
     }));
   }
+
+  $('audio').bind('play', function() {
+    activated = this;
+    $('audio').each(function() {
+      if(this != activated) this.pause();
+    });
+  });
   
   $('#beat_tag_list').select2({
     placeholder: 'Artists',
