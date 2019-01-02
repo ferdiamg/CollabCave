@@ -210,17 +210,17 @@ margin: 4px 0px 0px 0;
   
   &::-webkit-input-placeholder {
     color: $dark-grey;
-    font-weight: 200;
+    font-weight: 300;
   }
 
   /* Firefox 18- */
   &::-moz-placeholder {
     color: $dark-grey;
-    font-weight: 200;
+    font-weight: 300;
   }
 
   &:-ms-input-placeholder {
     color: $dark-grey;
-    font-weight: 200;
+    font-weight: 300;
   }
 }

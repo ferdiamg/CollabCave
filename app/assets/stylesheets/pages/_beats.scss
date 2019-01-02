@@ -68,14 +68,14 @@
 
     &--date {
       color: $dark-grey;
-      font-weight: 200;
+      font-weight: 300;
       // align-self: flex-start;
       flex-basis: 100%;
     }
 
     &--text {
       color: $dark-grey;
-      font-weight: 200;
+      font-weight: 300;
       flex: 0 0 auto;
     }
 
@@ -93,7 +93,7 @@
     border-radius: 12px;
     background-color: $dark-blue;
     color: white;
-    font-weight: 200;
+    font-weight: 300;
     font-size: 1rem;
     transition: all .1s ease-in-out;
     text-align: center;
