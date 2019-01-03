@@ -6,7 +6,7 @@
     = form_for [@beat, @beat.stems.new] do |s|
       .add-stems__inputs
         = s.text_field :name, class: 'input input--standard add-stems__inputs--name', placeholder: 'Name'
-        = s.text_field :link, class: 'input input--standard add-stems__inputs--link', placeholder: 'Dropbox-Link', pattern: '.*\.(?:mp3|ogg|wav)$', title: "Link must end on either .mp3, .wav or .ogg!"
+        = s.text_field :link, class: 'input input--standard add-stems__inputs--link', placeholder: 'Dropbox-Link', pattern: '.*\.(?:mp3|ogg|wav)$', title: "Link must end on either .mp3, .wav or .ogg!", id: "linkField", onblur: "clearLink()"
       = s.submit "Add", class: "button button--standard add-stems__button"
 
 .stems
@@ -24,3 +24,18 @@
       - if current_user.id == @beat.user_id
         = link_to beat_stem_path(@beat, stem), method: "DELETE", data: { confirm: "Do you really want to delete #{stem.name}?" }, class: "icon" do
           = image_tag "bin.svg"
+
+:javascript
+  function clearLink() {
+    var linkField = document.getElementById("linkField");
+    var link = linkField.value;
+    if(link.includes(".mp3")) {
+      linkField.value = link.split('.mp3')[0]+'.mp3';
+    }
+    if(link.includes(".wav")) {
+      linkField.value = link.split('.wav')[0]+'.wav';
+    }
+    if(link.includes(".ogg")) {
+      linkField.value = link.split('.ogg')[0]+'.ogg';
+    }
+  }
