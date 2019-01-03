@@ -10,8 +10,7 @@ class UserSessionsController < ApplicationController
     if @user = login(params[:email], params[:password], params[:remember])
       redirect_to(:beats, notice: 'Login successful')
     else
-      flash.now[:alert] = 'Login failed'
-      render action: 'new'
+      redirect_to :login, alert: "Login failed! (Please check email and password)"
     end
   end
 
