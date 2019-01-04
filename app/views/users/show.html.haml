@@ -3,7 +3,8 @@
   %h2.headline.name__headline
     = "@"+@user.username
   .name__info
-    = @user.email
+    = @user.beats.count
+    beats
 
 .user-beats
   %h2.headline Users beats
@@ -11,3 +12,9 @@
     - @user.beats.each do |beat|
       .beat
         = link_to beat.name, edit_beat_path(beat), class: "beat__link"
+
+%hr.divider
+
+.profile
+  %h2.headline Contact
+  = @user.email
