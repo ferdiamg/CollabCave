@@ -29,9 +29,6 @@
               -#   = pluralize(beat.likes.count, 'Like')
               #like-button{id: beat.attributes["id"]}
                 = like_button_tag beat, previous_like
-              
-              -# = link_to beat.link, class: "icon" do
-              -#   = image_tag "download.svg"
                 
               // Beat owner options
               - if current_user.id == beat.user_id  
@@ -52,4 +49,4 @@
           .beat__details--text
             posted by
           .beat__details--user
-            = "@" + User.find(beat.user_id).username
+            = link_to "@"+User.find(beat.user_id).username, User.find(beat.user_id)
