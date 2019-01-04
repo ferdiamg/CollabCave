@@ -1,0 +1,25 @@
+$('.feed').replaceWith('<%= escape_javascript (render partial: 'feed') %>');
+if ($(window).width() <= 460) {
+  const players = Array.from(document.querySelectorAll('#player')).map(p => new Plyr(p, {
+    controls: [
+      'play',
+    ]
+  }));
+} else {
+  const players = Array.from(document.querySelectorAll('#player')).map(p => new Plyr(p, {
+    controls: [
+      'play',
+      'progress',
+      'duration',
+      'volume',
+      'download',
+    ]
+  }));
+}
+
+$('audio').bind('play', function() {
+  activated = this;
+  $('audio').each(function() {
+    if(this != activated) this.pause();
+  });
+});

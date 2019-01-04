@@ -3,7 +3,11 @@ class UserSessionsController < ApplicationController
   before_action :disable_header, only: [:new]
 
   def new
-    @user = User.new
+    if logged_in?
+      redirect_to :beats
+    else
+      @user = User.new
+    end
   end
 
   def create
