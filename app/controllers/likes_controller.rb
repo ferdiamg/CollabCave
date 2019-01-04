@@ -7,7 +7,7 @@ class LikesController < ApplicationController
         redirect_to :beats, notice: "You can't like more than once!"
       else
         @beat.likes.create(user_id: current_user.id)
-        format.js { render 'beats/create.js.erb'}
+        format.js { render 'beats/likes.js.erb'}
       end
     end
   end
@@ -20,7 +20,7 @@ class LikesController < ApplicationController
         redirect_to :beats, notice: "You can't like more than once!"
       else
         @like.destroy
-        format.js { render 'beats/create.js.erb'}
+        format.js { render 'beats/likes.js.erb'}
       end
     end
   end
