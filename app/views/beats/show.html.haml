@@ -5,7 +5,7 @@
   .name__info
     posted by
     .name__info--important
-      = "@" + User.find(@beat.user_id).username
+      = link_to "@"+User.find(@beat.user_id).username, User.find(@beat.user_id)
 
 .feed__beat
   .beat__box
