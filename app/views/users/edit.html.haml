@@ -13,7 +13,8 @@
       .beat.js-hideOnDislike
         = link_to like.beat.name, beat_path(like.beat), class: "beat__link"
         .beat__producer
-          = "@" + like.beat.user.username
+          = link_to "@"+User.find(like.beat.user_id).username, User.find(like.beat.user_id)
+          
 
         #like-button.beat__like{id: like.beat.id}
           = like_button_tag like.beat, like

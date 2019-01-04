@@ -11,10 +11,14 @@
   .item-container
     - @user.beats.each do |beat|
       .beat
-        = link_to beat.name, edit_beat_path(beat), class: "beat__link"
+        = link_to beat.name, beat_path(beat), class: "beat__link"
 
 %hr.divider
 
-.profile
+.contact
   %h2.headline Contact
-  = @user.email
+  .contact__email
+    = @user.email
+  .contact__button
+    %form{action: "mailto:#{@user.email}", method: "GET"}
+      %input{type: "submit", value: "Contact", class: "button button--standard"}
