@@ -191,6 +191,11 @@
   padding: 30px 20px;
   margin-bottom: 6em;
 
+  @include mq(s) {
+    text-align: center;
+    width: 100%;
+  }
+
   &__email {
     text-align: center;
     word-break: break-word;
