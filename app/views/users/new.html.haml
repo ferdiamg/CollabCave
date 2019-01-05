@@ -7,19 +7,19 @@
     = form_for @user, :html => { class: "login__form" } do |f|
       .login__input
         .login__field-wrapper
-          = text_field_tag :beta_key, "", class: "login__field", placeholder: " "
+          = text_field_tag :beta_key, "", class: "login__field", placeholder: " ", required: true
           = label_tag :beta_key
         .login__field-wrapper
-          = f.text_field :email, placeholder: " ", class: "login__field", type: "email"
+          = f.text_field :email, placeholder: " ", class: "login__field", type: "email", required: true
           = f.label :email
         .login__field-wrapper
-          = f.text_field :username, placeholder: " ", class: "login__field"
+          = f.text_field :username, placeholder: " ", class: "login__field", required: true, pattern: '^[a-zA-Z0-9\-_]+$', title: "Only numbers, letters, hyphen and dash allowed!"
           = f.label :username
         .login__field-wrapper
-          = f.password_field :password, placeholder: " ", class: "login__field"
+          = f.password_field :password, placeholder: " ", class: "login__field", required: true
           = f.label :password
         .login__field-wrapper
-          = f.password_field :password_confirmation, placeholder: " ", class: "login__field login__field--password"
+          = f.password_field :password_confirmation, placeholder: " ", class: "login__field login__field--password", required: true
           = f.label :password_confirmation
         = f.submit "Register", class: "button button--standard"
 

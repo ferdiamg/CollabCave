@@ -34,7 +34,7 @@ class BeatsController < ApplicationController
     if @beat.save
       redirect_to :beats, notice: "Beat was successfully created."
     else
-      redirect_to :beats, alert: "Beat couldn't be created!"
+      redirect_to :beats, alert: "Beat couldn't be created! #{@beat.errors.full_messages}"
     end
   end
 
