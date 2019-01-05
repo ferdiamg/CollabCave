@@ -3,18 +3,19 @@
 %nav.header
   %ul.header__nav
     %li.header__item
-      = image_tag "collabcave_logo.svg"
-    %li.header__item
+      = link_to :beats do 
+        = image_tag "collabcave_logo.svg"
+    %li.header__item--text
       = link_to "Feed", :beats, class: "#{on_feed}"
-    %li.header__item
+    %li.header__item--text
       = link_to "Profile", edit_user_path(current_user), class: "#{on_profile}"
-    %li.header__item
+    %li.header__item--text
       = link_to 'Logout', :logout, method: "POST"
-    %li.header__item
-    
+
 .burger-menu
   %h1
-    = image_tag "collabcave_logo.svg"
+    = link_to :beats do 
+      = image_tag "collabcave_logo.svg"
   %input#burger{:type => "checkbox"}
   %label{:for => "burger"}
     %span

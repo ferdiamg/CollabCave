@@ -38,31 +38,34 @@
         padding-bottom: 30px;
       }
     }
+
+    &--text {
+      a {
+        display: block;
+        padding: 5px;
+        margin: 10px;
+        color: $dark-blue;
+        font-weight: 300;
+        text-decoration: none;
+    
+        &:hover {
+          color: $prim-blue;
+        }
+    
+        @include mq(s) {
+          margin: 0px;
+        }
+      }
+    }
   }
 
-  a {
-    display: block;
-    padding: 5px;
-    margin: 10px;
-    color: $dark-blue;
-    font-weight: 300;
-    text-decoration: none;
-
-    &:hover {
-      color: $prim-blue;
-    }
-
-    @include mq(s) {
-      margin: 0px;
-    }
-  }
+  
 }
 
 /* ------------------------------------------------ */
 
 .burger-menu {
   h1 {
-
     img {
       height: 1em;
       min-height: 1em;

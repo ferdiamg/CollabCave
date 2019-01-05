@@ -5,8 +5,8 @@
     
     = form_for [@beat, @beat.stems.new] do |s|
       .add-stems__inputs
-        = s.text_field :name, class: 'input input--standard add-stems__inputs--name', placeholder: 'Name'
-        = s.text_field :link, class: 'input input--standard add-stems__inputs--link', placeholder: 'Dropbox-Link', pattern: '.*\.(?:mp3|ogg|wav)$', title: "Link must end on either .mp3, .wav or .ogg!", id: "linkField", onblur: "clearLink()"
+        = s.text_field :name, class: 'input input--standard add-stems__inputs--name', placeholder: 'Name', pattern: '.{3,25}', title: "Maximum length is 25 letters!", required: true
+        = s.text_field :link, class: 'input input--standard add-stems__inputs--link', placeholder: 'Dropbox-Link', pattern: '.*\.(?:mp3|ogg|wav)$', title: "Link must end on either .mp3, .wav or .ogg!", required: true, id: "linkField", onblur: "clearLink()"
       = s.submit "Add", class: "button button--standard add-stems__button"
 
 .stems
