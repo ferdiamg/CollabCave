@@ -1,4 +1,16 @@
+<%# Rendere für Filterung %>
 $('.feed').replaceWith('<%= escape_javascript (render partial: 'feed') %>');
+<%# Rendere für Load More %>
+$("#beats-container").append("<%= j(render(partial: "beat", collection: @beats)) %>");
+
+<%# Controller muss je nach Anfrage rendern %>
+
+<% if @beats.last_page? %>
+  $("#load-more-beats").hide();
+<% else %>
+  $("#load-more-beats").attr("href", "<%= beats_path(page: (@beats.current_page+1)) %>");
+<% end %>
+
 if ($(window).width() <= 460) {
   const players = Array.from(document.querySelectorAll('#player')).map(p => new Plyr(p, {
     controls: [

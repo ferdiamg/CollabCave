@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_12_195957) do
+ActiveRecord::Schema.define(version: 2019_01_10_160431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 2018_12_12_195957) do
     t.string "slug"
     t.index ["slug"], name: "index_beats_on_slug", unique: true
     t.index ["user_id"], name: "index_beats_on_user_id"
+  end
+
+  create_table "collaboration_requests", force: :cascade do |t|
+    t.bigint "beat_id"
+    t.bigint "collaborator_id"
+    t.bigint "producer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["beat_id"], name: "index_collaboration_requests_on_beat_id"
+    t.index ["collaborator_id"], name: "index_collaboration_requests_on_collaborator_id"
+    t.index ["producer_id"], name: "index_collaboration_requests_on_producer_id"
   end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
