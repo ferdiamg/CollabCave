@@ -3,4 +3,6 @@
 
   - if @beats
     = render "filter"
-    = render @beats
+    #beats-container
+      = render @beats
+    = link_to "Load more", beats_path(page: @beats.current_page+1), id: "load-more-beats", remote: true

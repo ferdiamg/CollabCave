@@ -10,6 +10,7 @@ gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-
 gem 'select2-rails'
 gem 'autoprefixer-rails', '~> 9.3', '>= 9.3.1'
 gem 'friendly_id', '~> 5.2.4'
+gem 'kaminari'
 
 # Standard, extern libraries
 gem 'haml-rails', '~> 1.0'

@@ -6,15 +6,11 @@ class BeatsController < ApplicationController
     respond_to do |format|
       @user = current_user
       @beat = Beat.new
-
-      @beats = Beat.where(nil) # creates an anonymous scope
-      @beats = @beats.from_bpm(params[:from_bpm]) if params[:from_bpm].present?
-      @beats = @beats.to_bpm(params[:to_bpm]) if params[:to_bpm].present?
-      @beats = @beats.key(params[:key]) if params[:key].present?
-      @beats = @beats.tagged_with(params[:tagged_with]) if params[:tagged_with].present?
     
+      @beats = Beat.search(params)
       format.html 
-      format.js { render 'beats/filter.js.erb'}
+      format.js { render 'beats/ajax.js.erb'}
+      
     end
   end
 
@@ -37,10 +33,11 @@ class BeatsController < ApplicationController
       redirect_to :beats, alert: "Beat couldn't be created! #{@beat.errors.full_messages}"
     end
   end
-
+  
   def edit
-    @beat = Beat.friendly.find(params[:id])
-    redirect_to :root unless @beat.user == current_user
+    # @beat = Beat.friendly.find(params[:id])
+    # redirect_to :root unless @beat.user == current_user
+    @beat = current_user.beats.friendly.find(params[:id])
     @stems = @beat.stems.all
   end
 
