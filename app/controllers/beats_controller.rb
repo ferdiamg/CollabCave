@@ -8,8 +8,8 @@ class BeatsController < ApplicationController
       @beat = Beat.new
       @beats = Beat.search(params)
 
-      format.html 
-      format.js { render 'beats/ajax.js.erb', :locals => {:filter => params[:filter]} }
+      format.html
+      format.js { render 'beats/ajax.js.erb' }
     end
   end
 

@@ -371,5 +371,10 @@
       color: $prim-red;
     }
   }
-  
+}
+
+.load-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
