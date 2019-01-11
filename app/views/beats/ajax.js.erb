@@ -1,9 +1,11 @@
-<%# Rendere für Filterung %>
-$('.feed').replaceWith('<%= escape_javascript (render partial: 'feed') %>');
-<%# Rendere für Load More %>
-$("#beats-container").append("<%= j(render(partial: "beat", collection: @beats)) %>");
 
-<%# Controller muss je nach Anfrage rendern %>
+<% if params.has_key?(:filter)%>
+  <%# Filterung %>
+  $('#beats-container').html("<%= j(render(partial: "beat", collection: @beats)) %>");
+<% else %>
+  <%# Load More %>
+  $("#beats-container").append("<%= j(render(partial: "beat", collection: @beats)) %>");
+<% end %>
 
 <% if @beats.last_page? %>
   $("#load-more-beats").hide();
