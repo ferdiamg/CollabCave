@@ -1,5 +1,5 @@
 
-<% if params.has_key?(:filter)%>
+<% if params[:filter].present? %>
   <%# Filterung %>
   $('#beats-container').html("<%= j(render(partial: "beat", collection: @beats)) %>");
 <% else %>

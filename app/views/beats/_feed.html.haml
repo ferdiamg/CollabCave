@@ -1,8 +1,8 @@
 .feed
   %h2.headline Feed
-
   - if @beats
     = render "filter"
     #beats-container
       = render @beats
-    = link_to "Load more", beats_path(page: @beats.current_page+1), id: "load-more-beats", remote: true
+    .load-area
+      = link_to "Load more", beats_path(page: @beats.current_page+1), id: "load-more-beats", remote: true, class: "button button--link"
