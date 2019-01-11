@@ -6,11 +6,10 @@ class BeatsController < ApplicationController
     respond_to do |format|
       @user = current_user
       @beat = Beat.new
-    
       @beats = Beat.search(params)
+
       format.html 
-      format.js { render 'beats/ajax.js.erb'}
-      
+      format.js { render 'beats/ajax.js.erb', :locals => {:filter => params[:filter]} }
     end
   end
 
@@ -35,14 +34,13 @@ class BeatsController < ApplicationController
   end
   
   def edit
-    # @beat = Beat.friendly.find(params[:id])
-    # redirect_to :root unless @beat.user == current_user
     @beat = current_user.beats.friendly.find(params[:id])
     @stems = @beat.stems.all
+    redirect_to :root unless @beat.user == current_user
   end
 
   def update
-    @beat = Beat.friendly.find(params[:id])
+    @beat = current_user.beats.friendly.find(params[:id])
     redirect_to :root unless @beat.user == current_user
     @beat.tag_list = params[:beat][:tag_list]
     if @beat.update(beat_params)
@@ -53,7 +51,7 @@ class BeatsController < ApplicationController
   end
 
   def destroy
-    @beat = Beat.friendly.find(params[:id])
+    @beat = current_user.beats.friendly.find(params[:id])
     redirect_to :root unless @beat.user == current_user
     if @beat.destroy
       redirect_to :beats, notice: "Beat was successfully removed."
