@@ -34,6 +34,6 @@ class Beat < ApplicationRecord
     beats = beats.to_bpm(params[:to_bpm]) if params[:to_bpm].present?
     beats = beats.key(params[:key]) if params[:key].present?
     beats = beats.tagged_with(params[:tagged_with]) if params[:tagged_with].present?
-    beats
+    beats.order("created_at DESC")
   end
 end
