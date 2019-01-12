@@ -1,4 +1,18 @@
-$('.feed').replaceWith('<%= escape_javascript (render partial: 'feed') %>');
+
+<% if params[:filter].present? %>
+  <%# Filterung %>
+  $('#beats-container').html("<%= j(render(partial: "beat", collection: @beats)) %>");
+<% else %>
+  <%# Load More %>
+  $("#beats-container").append("<%= j(render(partial: "beat", collection: @beats)) %>");
+<% end %>
+
+<% if @beats.last_page? %>
+  $("#load-more-beats").hide();
+<% else %>
+  $("#load-more-beats").attr("href", "<%= beats_path(page: (@beats.current_page+1)) %>");
+<% end %>
+
 if ($(window).width() <= 460) {
   const players = Array.from(document.querySelectorAll('#player')).map(p => new Plyr(p, {
     controls: [

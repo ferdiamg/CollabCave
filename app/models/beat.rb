@@ -23,4 +23,17 @@ class Beat < ApplicationRecord
       [:name, :bpm, :key]
     ]
   end
+
+  def self.search(params)
+    if params[:filter].present?
+      beats = Beat.all.page(params[:page]).per(500)
+    else
+      beats = Beat.all.page(params[:page]).per(10)
+    end
+    beats = beats.from_bpm(params[:from_bpm]) if params[:from_bpm].present?
+    beats = beats.to_bpm(params[:to_bpm]) if params[:to_bpm].present?
+    beats = beats.key(params[:key]) if params[:key].present?
+    beats = beats.tagged_with(params[:tagged_with]) if params[:tagged_with].present?
+    beats
+  end
 end

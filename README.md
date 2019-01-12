@@ -1,4 +1,4 @@
 # CollabCave
 A collaboration platform for music producers.
 
-Uses Select2, jQuery, Sorcery, ActsAsTaggableOn
+Uses Sorcery, ActsAsTaggableOn, Kaminari, Select2 and jQuery.

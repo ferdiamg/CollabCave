@@ -11,4 +11,7 @@ class User < ApplicationRecord
 
   has_many :beats, dependent: :destroy
   has_many :likes, dependent: :destroy
+  # has_many :collaboration_requests, -> {where(collaborator_id: self.id)}
+  has_many :incoming_collaboration_requests, foreign_key: "producer_id", class_name: "CollaborationRequest"
+  has_many :outgoing_collaboration_requests, foreign_key: "collaborator_id", class_name: "CollaborationRequest"
 end
