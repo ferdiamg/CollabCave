@@ -20,5 +20,4 @@
   .contact__email
     = @user.email
   .contact__button
-    %form{action: "mailto:#{@user.email}", method: "GET"}
-      %input{type: "submit", value: "Contact", class: "button button--standard"}
+    = mail_to "#{@user.email}", "Contact", class: "button button--link", subject: "Collaboration on collabcave.io"
