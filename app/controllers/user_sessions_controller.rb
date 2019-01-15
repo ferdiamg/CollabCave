@@ -12,7 +12,7 @@ class UserSessionsController < ApplicationController
 
   def create
     if @user = login(params[:email], params[:password], params[:remember])
-      redirect_to(:beats, notice: 'Login successful')
+      redirect_to(:beats, notice: 'Login successful.')
     else
       redirect_to :login, alert: "Login failed! (Please check email and password)"
     end
