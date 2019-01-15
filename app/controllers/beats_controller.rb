@@ -16,6 +16,7 @@ class BeatsController < ApplicationController
   def show
     @beat = Beat.friendly.find(params[:id])
     @stems = @beat.stems.all
+    @collab = CollaborationRequest.new
   end
 
   def new

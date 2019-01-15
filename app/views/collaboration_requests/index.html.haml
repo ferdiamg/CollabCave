@@ -1,0 +1,15 @@
+- @incoming_collabs.each do |collab|
+  %p
+    = link_to collab.collaborator.username, collab.collaborator
+    = "wants to collaborate on"
+    = link_to collab.beat.name, beat_path(collab.beat)
+    = link_to "APPROVE", collaboration_request_path(collab), method: :put
+    = link_to "X", collaboration_request_path(collab), data: {confirm: "Do you really want to delete #{collab.beat.name}?"}, method: :delete
+
+- @outgoing_collabs.each do |collab|
+  %p
+    = "Asked "
+    = link_to collab.producer.username, collab.producer
+    = "to collaborate on"
+    = link_to collab.beat.name, beat_path(collab.beat)
+    = link_to "X", collaboration_request_path(collab, outgoing: true), data: {confirm: "Do you really want to delete #{collab.beat.name}?"}, method: :delete

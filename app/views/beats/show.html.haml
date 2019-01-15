@@ -26,7 +26,7 @@
         // Beat likes
         - previous_like = @beat.likes.find { |like| like.user_id == current_user.id }
         -# %p#likes-count
-        -#   = pluralize(beat.likes.count, 'Like')
+        -#   = pluralize(@beat.likes.count, 'Like')
         #like-button{id: @beat.id}
           = like_button_tag @beat, previous_like
           
@@ -40,6 +40,10 @@
         // Beat Player
       .box__player
         %audio#player{ controls: '' }
-          %source{ src: "#{@beat.link+"?raw=1"}", type: "audio/mp3" }          
+          %source{ src: "#{@beat.link+"?raw=1"}", type: "audio/mp3" }
+
+- if current_user.beats.find_by_id(@beat.id)
+- else
+  = button_to 'Request collaboration', {controller: "collaboration_requests", action: "create", beat_id: @beat.id, collaborator_id: current_user.id, producer_id: @beat.user_id}, method: :post
 
 = render 'stems_form'
