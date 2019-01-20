@@ -30,15 +30,6 @@
       $('.alert').slideUp(500);
     }, 1500);
   });
-
-  $(".heart").wrap("<div class='heart-container'></div>");
-  $('.heart').on('click', function(){
-    $(this).toggleClass('is_animating');
-  });
-  $('.heart').on('animationend', function(){
-    $(this).toggleClass('is_animating');
-  });
-  
   
   if ($(window).width() <= 460) {
     const players = Array.from(document.querySelectorAll('#player')).map(p => new Plyr(p, {
