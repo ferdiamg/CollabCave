@@ -1,15 +1,25 @@
-- @incoming_collabs.each do |collab|
-  %p
-    = link_to collab.collaborator.username, collab.collaborator
-    = "wants to collaborate on"
-    = link_to collab.beat.name, beat_path(collab.beat)
-    = link_to "APPROVE", collaboration_request_path(collab), method: :put
-    = link_to "X", collaboration_request_path(collab), data: {confirm: "Do you really want to delete #{collab.beat.name}?"}, method: :delete
+.collab-wrapper
+  %h2.headline Incoming collaboration requests
+  .incoming-wrapper
+    - @incoming_collabs.each do |collab|
+      .collaboration
+        .collaboration__link
+          = link_to collab.collaborator.username, collab.collaborator
+          = "wants to collaborate on"
+          = link_to "'#{collab.beat.name}'", beat_path(collab.beat)
+        .collaboration__actions
+          = link_to collaboration_request_path(collab), method: :put, class: "collaboration__actions--approve" do
+            = image_tag "approve.svg"
+          = link_to collaboration_request_path(collab), method: :delete, class: "collaboration__actions--decline" do
+            = image_tag "decline.svg"
 
-- @outgoing_collabs.each do |collab|
-  %p
-    = "Asked "
-    = link_to collab.producer.username, collab.producer
-    = "to collaborate on"
-    = link_to collab.beat.name, beat_path(collab.beat)
-    = link_to "X", collaboration_request_path(collab, outgoing: true), data: {confirm: "Do you really want to delete #{collab.beat.name}?"}, method: :delete
+  %hr.divider
+
+  %h2.headline Outgoing collaboration requests
+  - @outgoing_collabs.each do |collab|
+    %p
+      = "Asked "
+      = link_to collab.producer.username, collab.producer
+      = "to collaborate on"
+      = link_to "'#{collab.beat.name}'", beat_path(collab.beat)
+      = link_to "X", collaboration_request_path(collab, outgoing: true), data: {confirm: "Do you really want to delete #{collab.beat.name}?"}, method: :delete
