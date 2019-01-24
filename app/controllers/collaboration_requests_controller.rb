@@ -14,10 +14,14 @@ class CollaborationRequestsController < ApplicationController
     if current_user.beats.find_by_id(@collab.beat_id)
       redirect_to Beat.find(@collab.beat_id), alert: "Can't request collaborations on your own beats!"
     else
-      if @collab.save
-        redirect_to Beat.find(@collab.beat_id), notice: "Asked #{@collab.producer.username} for a collaboration!"
+      if current_user.outgoing_collaboration_requests.exists?(beat_id: @collab.beat_id)
+        redirect_to Beat.find(@collab.beat_id), alert: "Can't request a collaboration on a beat twice!"
       else
-        redirect_to Beat.find(@collab.beat_id), alert: "#{@collab.errors.full_messages}"
+        if @collab.save
+          redirect_to Beat.find(@collab.beat_id), notice: "Asked #{@collab.producer.username} for a collaboration!"
+        else
+          redirect_to Beat.find(@collab.beat_id), alert: "#{@collab.errors.full_messages}"
+        end
       end
     end
   end
@@ -32,12 +36,17 @@ class CollaborationRequestsController < ApplicationController
   end
 
   def destroy
-    @collab = if params[:outgoing] then current_user.outgoing_collaboration_requests.find(params[:id]) else current_user.incoming_collaboration_requests.find(params[:id]) end
-    if @collab.destroy
-      redirect_to :collaborations, notice: "Deleted collaboration request!"
+    @collab = if params[:outgoing] then current_user.outgoing_collaboration_requests.find_by_id(params[:id]) else current_user.incoming_collaboration_requests.find_by_id(params[:id]) end
+    if @collab != nil
+      if @collab.destroy
+        redirect_to :collaborations, notice: "Deleted collaboration request!"
+      else
+        redirect_to :collaborations, notice: "Couldn't delete collaboration request!"
+      end
     else
-      redirect_to :collaborations, notice: "Couldn't delete collaboration request!"
+      redirect_to :collaborations, notice: "Collaboration already deleted!"
     end
+    
   end
 
   private

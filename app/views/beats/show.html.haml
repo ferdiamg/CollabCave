@@ -39,13 +39,16 @@
 
         // Beat Player
       .box__player
-        - if current_user.outgoing_collaboration_requests.find_by(beat_id: @beat.id).approved == true
-          %audio#playerApproved
-            %source{ src: "#{@beat.link+"?raw=1"}", type: "audio/mp3" }
+        - if current_user.outgoing_collaboration_requests.find_by(beat_id: @beat.id)
+          - if current_user.outgoing_collaboration_requests.find_by(beat_id: @beat.id).approved == true
+            %audio#playerApproved
+              %source{ src: "#{@beat.link+"?raw=1"}", type: "audio/mp3" }
+          - else
+            %audio#playerNotApproved
+              %source{ src: "#{@beat.link+"?raw=1"}", type: "audio/mp3" }
         - else
           %audio#playerNotApproved
             %source{ src: "#{@beat.link+"?raw=1"}", type: "audio/mp3" }
-
 
 - if current_user.beats.find_by_id(@beat.id) || current_user.outgoing_collaboration_requests.find_by(beat_id: @beat.id)
 - else
