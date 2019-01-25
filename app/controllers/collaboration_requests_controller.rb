@@ -28,10 +28,14 @@ class CollaborationRequestsController < ApplicationController
 
   def update
     @collab = current_user.incoming_collaboration_requests.find(params[:id])
-    if @collab.update(approved: true)
-      redirect_to :collaborations, notice: "Approved collaboration request!"
+    if @collab.approved == true
+      redirect_to :collaborations, alert: "Can't approve twice!"
     else
-      redirect_to :collaborations, notice: "Couldn't approve collaboration request!"
+      if @collab.update(approved: true)
+        redirect_to :collaborations, notice: "Approved collaboration request!"
+      else
+        redirect_to :collaborations, alert: "Couldn't approve collaboration request!"
+      end
     end
   end
 
@@ -41,7 +45,7 @@ class CollaborationRequestsController < ApplicationController
       if @collab.destroy
         redirect_to :collaborations, notice: "Deleted collaboration request!"
       else
-        redirect_to :collaborations, notice: "Couldn't delete collaboration request!"
+        redirect_to :collaborations, alert: "Couldn't delete collaboration request!"
       end
     else
       redirect_to :collaborations, notice: "Collaboration already deleted!"

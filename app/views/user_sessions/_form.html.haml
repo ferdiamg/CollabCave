@@ -6,4 +6,7 @@
     .login__field-wrapper
       = password_field_tag :password, nil, placeholder: " ", class: "login__field login__field--password", required: true
       = label_tag :password
+    .login__field-wrapper
+      = check_box_tag :remember, params[:remember], false
+      = label_tag :remember
     = submit_tag "Login", class: "button button--standard"
