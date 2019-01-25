@@ -9,7 +9,7 @@
     %li.header__item--text
       = link_to "Feed", :feed, class: "#{on_feed}"
     %li.header__item--text
-      = link_to "Collabs ("+current_user.outgoing_collaboration_requests.where(approved: false).count.to_s+")", :collaborations, class: "#{on_collabs}"
+      = link_to "Collabs ("+current_user.incoming_collaboration_requests.where(approved: false).count.to_s+")", :collaborations, class: "#{on_collabs}"
     %li.header__item--text
       = link_to "Profile", edit_user_path(current_user), class: "#{on_profile}"
     %li.header__item--text
