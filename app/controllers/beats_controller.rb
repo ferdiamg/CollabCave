@@ -46,7 +46,7 @@ class BeatsController < ApplicationController
     if @beat.update(beat_params)
       redirect_to :beats, notice: "Beat was successfully updated."
     else
-      redirect_to :beats, notice: "Beat was successfully updated."
+      redirect_to :beats, notice: "Beat couldn't be updated! #{@beat.errors.full_messages}"
     end
   end
 
