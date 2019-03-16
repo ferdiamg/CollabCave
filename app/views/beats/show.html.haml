@@ -54,4 +54,5 @@
 - else
   = button_to 'Request collaboration', {controller: "collaboration_requests", action: "create", beat_id: @beat.id, collaborator_id: current_user.id, producer_id: @beat.user_id}, method: :post
 
-= render 'stems_form'
+- if @stems
+  = render 'stems_form'

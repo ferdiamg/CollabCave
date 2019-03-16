@@ -15,7 +15,9 @@ class BeatsController < ApplicationController
 
   def show
     @beat = Beat.friendly.find(params[:id])
-    @stems = @beat.stems.all
+    if current_user.beats.find_by_id(@beat.id) || current_user.outgoing_collaboration_requests.where(:approved => true).find_by(beat_id: @beat.id)
+      @stems = @beat.stems.all
+    end
     @collab = CollaborationRequest.new
   end
 

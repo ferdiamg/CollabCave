@@ -14,22 +14,38 @@
 <% end %>
 
 if ($(window).width() <= 460) {
-  const players = Array.from(document.querySelectorAll('#player')).map(p => new Plyr(p, {
-    controls: [
-      'play',
-    ]
-  }));
-} else {
-  const players = Array.from(document.querySelectorAll('#player')).map(p => new Plyr(p, {
-    controls: [
-      'play',
-      'progress',
-      'duration',
-      'volume',
-      'download',
-    ]
-  }));
-}
+    const players = Array.from(document.querySelectorAll('#player')).map(p => new Plyr(p, {
+      controls: [
+        'play',
+      ]
+    }));
+  } else {
+    const playersRegular = Array.from(document.querySelectorAll('#player')).map(p => new Plyr(p, {
+      controls: [
+        'play',
+        'progress',
+        'duration',
+        'volume',
+      ]
+    }));
+    const playersApproved = Array.from(document.querySelectorAll('#playerApproved')).map(p => new Plyr(p, {
+      controls: [
+        'play',
+        'progress',
+        'duration',
+        'volume',
+        'download',
+      ]
+    }));
+    const playersNotApproved = Array.from(document.querySelectorAll('#playerNotApproved')).map(p => new Plyr(p, {
+      controls: [
+        'play',
+        'progress',
+        'duration',
+        'volume',
+      ]
+    }));
+  }
 
 $('audio').bind('play', function() {
   activated = this;

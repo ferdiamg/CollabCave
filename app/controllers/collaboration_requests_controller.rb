@@ -51,7 +51,6 @@ class CollaborationRequestsController < ApplicationController
     else
       redirect_to :collaborations, notice: "Collaboration already deleted!"
     end
-    
   end
 
   private
