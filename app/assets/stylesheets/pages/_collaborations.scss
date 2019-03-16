@@ -28,6 +28,7 @@
   }
 
   &__link {
+    text-align: center;
 
     &--text {
       text-decoration: none;
@@ -118,4 +119,8 @@
   flex-direction: row;
   color: $dark-blue;
   margin-bottom: 2em;
+}
+
+.span-collab {
+  margin-right: 0.35em;
 }
