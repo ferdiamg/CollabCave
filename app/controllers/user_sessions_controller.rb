@@ -1,4 +1,5 @@
 class UserSessionsController < ApplicationController
+  skip_before_action :require_login, except: [:destroy]
   before_action :disable_header, only: [:new]
 
   def new
