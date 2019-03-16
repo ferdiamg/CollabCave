@@ -3,6 +3,7 @@ class CollaborationRequestsController < ApplicationController
   def index
     @incoming_collabs = current_user.incoming_collaboration_requests
     @outgoing_collabs = current_user.outgoing_collaboration_requests
+    @allcollabs = @incoming_collabs + @outgoing_collabs
   end
 
   def new
