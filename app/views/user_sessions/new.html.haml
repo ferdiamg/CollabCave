@@ -4,7 +4,7 @@
     = image_tag "collabcave_logo.svg", alt: "CollabCave Logo", class: "login__logo"
     = render "form"
     .login__register
-      Don't have an account?
+      New?
       = link_to "Sign Up", :register, class: "login__register-link"
     .login__register
-      = link_to "Forgot Password?", new_password_reset_path, class: "login__register-link"
+      = link_to "Forgot my password", new_password_reset_path, class: "login__register-link"

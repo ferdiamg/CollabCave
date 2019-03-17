@@ -38,27 +38,27 @@
   %hr.divider
 
   %h2.headline Active collaborations
-  .incoming-wrapper
-    - @incoming_collabs.select(&:approved).each do |collab|
-      .collaboration
-        .span-collab
-        .collaboration__link
-          = link_to collab.collaborator.username, collab.collaborator, class: "collaboration__link--producer"
-          .collaboration__link--text
-            = "works on"
-          = link_to "'#{collab.beat.name}'", beat_path(collab.beat), class: "collaboration__link--beat"
-        .collaboration__actions
-          .decline-wrapper
-            = link_to collaboration_request_path(collab), data: {confirm: "Do you really want to delete the collaboration #{collab.beat.name} with #{collab.collaborator.username}?"}, method: :delete do
-              = image_tag "decline_red.svg"
-    - @outgoing_collabs.select(&:approved).each do |collab|
-      .outgoing-colloboration
-        .span-collab
-          = "Working on"
-        .collaboration__link
+  .activecollabs
+    .incoming-wrapper
+      - @incoming_collabs.select(&:approved).each do |collab|
+        .collaboration
+          .collaboration__link
+            = link_to collab.collaborator.username, collab.collaborator, class: "collaboration__link--producer"
+            .collaboration__link--text
+              = "works on"
+            = link_to "'#{collab.beat.name}'", beat_path(collab.beat), class: "collaboration__link--beat"
+          .collaboration__actions
+            .decline-wrapper
+              = link_to collaboration_request_path(collab), data: {confirm: "Do you really want to delete the collaboration #{collab.beat.name} with #{collab.collaborator.username}?"}, method: :delete do
+                = image_tag "decline_red.svg"
+      - @outgoing_collabs.select(&:approved).each do |collab|
+        .outgoing-colloboration
           .span-collab
-            = link_to collab.producer.username + "'s", collab.producer, class: "collaboration__link--producer"
-        = link_to "'#{collab.beat.name}'", beat_path(collab.beat), class: "collaboration__link--beat"
-        .collaboration__actions
-          = link_to collaboration_request_path(collab, outgoing: true), data: {confirm: "Do you really want to delete the collaboration #{collab.beat.name} with #{collab.producer.username}?"}, method: :delete do
-            = image_tag "decline_red.svg"
+            = "Working on"
+          .collaboration__link
+            .span-collab
+              = link_to collab.producer.username + "'s", collab.producer, class: "collaboration__link--producer"
+          = link_to "'#{collab.beat.name}'", beat_path(collab.beat), class: "collaboration__link--beat"
+          .collaboration__actions
+            = link_to collaboration_request_path(collab, outgoing: true), data: {confirm: "Do you really want to delete the collaboration #{collab.beat.name} with #{collab.producer.username}?"}, method: :delete do
+              = image_tag "decline_red.svg"
