@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_10_160431) do
+ActiveRecord::Schema.define(version: 2019_01_13_194915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2019_01_10_160431) do
     t.bigint "producer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "approved", default: false
     t.index ["beat_id"], name: "index_collaboration_requests_on_beat_id"
     t.index ["collaborator_id"], name: "index_collaboration_requests_on_collaborator_id"
     t.index ["producer_id"], name: "index_collaboration_requests_on_producer_id"

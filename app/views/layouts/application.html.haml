@@ -28,17 +28,8 @@
     setTimeout(function(){
       $('.notice').slideUp(500);
       $('.alert').slideUp(500);
-    }, 1000);
+    }, 1500);
   });
-
-  $(".heart").wrap("<div class='heart-container'></div>");
-  $('.heart').on('click', function(){
-    $(this).toggleClass('is_animating');
-  });
-  $('.heart').on('animationend', function(){
-    $(this).toggleClass('is_animating');
-  });
-  
   
   if ($(window).width() <= 460) {
     const players = Array.from(document.querySelectorAll('#player')).map(p => new Plyr(p, {
@@ -47,13 +38,29 @@
       ]
     }));
   } else {
-    const players = Array.from(document.querySelectorAll('#player')).map(p => new Plyr(p, {
+    const playersRegular = Array.from(document.querySelectorAll('#player')).map(p => new Plyr(p, {
+      controls: [
+        'play',
+        'progress',
+        'duration',
+        'volume',
+      ]
+    }));
+    const playersApproved = Array.from(document.querySelectorAll('#playerApproved')).map(p => new Plyr(p, {
       controls: [
         'play',
         'progress',
         'duration',
         'volume',
         'download',
+      ]
+    }));
+    const playersNotApproved = Array.from(document.querySelectorAll('#playerNotApproved')).map(p => new Plyr(p, {
+      controls: [
+        'play',
+        'progress',
+        'duration',
+        'volume',
       ]
     }));
   }
