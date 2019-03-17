@@ -6,7 +6,7 @@
 }
 
 .collaboration {
-  min-width: 600px;
+  // min-width: 600px;
   height: 83px;
   border-radius: 17px;
   background: white;
@@ -99,10 +99,6 @@
   padding-top: 2em;
 }
 
-.approve-wrapper {
-
-}
-
 .decline-wrapper {
   padding-left: 0.75em;
 }
@@ -123,4 +119,8 @@
 
 .span-collab {
   margin-right: 0.35em;
+}
+
+.activecollabs {
+  margin-bottom: 2em;
 }
