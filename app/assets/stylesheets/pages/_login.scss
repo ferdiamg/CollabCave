@@ -1,168 +1,120 @@
 .login {
-  display: flex;  
-  justify-content: center;
-  align-items: center;
+  background-image: linear-gradient(45deg, $prim-blue 0%, $prim-purp 90%);
+  width: 100vw;
   height: 100vh;
-
-  &__box {
-    -webkit-appearance: none;
-    box-shadow: 0px 8px 40px 0px rgba(0,0,0,0.05);
-    border-radius: 17px;
-    padding: 90px 100px 40px 100px;
-    transition: all 1s ease-in-out;
-
-    &:hover {
-      -webkit-appearance: none;
-      box-shadow: 0px 8px 40px 0px rgba(0,0,0,0.08);
-    }
-
-    @include mq(s) {
-      padding: 2em 100px 40px 100px;
-    }
-  }
-
-  &__logo {
-    display: block;
-    width: 90%;
-    min-height: 5em;
-    height: auto;
-    margin: 0 auto 70px auto;
-
-    @include mq(s) {
-      margin: 0 auto 1em auto;
-      min-height: 10em;
-      min-width: 10em;
-    }
-  }
-
-  &__form {
-    width: 100%;
-
-    .button {
-      margin: 0 auto 30px auto;
-    }
-  }
-
-  &__pass-button {
-    display: block;
-    width: 8%;
-    height: auto;
-  }
-
-  &__field-wrapper {
-    display: flex;
-    flex-flow: column-reverse;
-  }
+  color: white;
 
   &__field {
-    width: 100%;
-    height: 50px;
-    display: block;
-    font-size: 1rem;
-    margin-bottom: 0.5em;
-    color: $dark-grey;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid $old-grey;
-    border-radius: 0;
+    background: rgba(0, 0, 0, 0);;
+    border-radius: 6px;
+    border: 2px solid white;
+    border-color: white;
+    width: 30em;
+    height: 4em;
     outline: none;
+    color: white;
+    margin-bottom: 1.5em;
 
-    &--password {
-      margin-bottom: 55px;
+    &::placeholder {
+      color: white;
+      font-size: 1.5em;
+      font-family: "Poppins";
+      font-weight: 300;
+      padding-left: 1em;
+    }
+  }
 
-      @include mq(s) {
-        margin-bottom: 2em;
+  &__box {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .left {
+    font-family: Poppins;
+    padding-top: 2em;
+    padding-left: 10em;
+    width: 50vw;
+
+    &__logo {
+      svg {
+        height: 30px;
+      }
+      padding-bottom: 8em;
+    }
+
+    &__text {
+      padding-bottom: 3em;
+      &--headline {
+        font-size: 3.5em;
+        font-weight: 500;
+        padding-bottom: 0.3em;
+      }
+
+      &--cta {
+        font-size: 1.2em;
+        line-height: 1.75em;
+        font-weight: 300;
       }
     }
 
-    &::placeholder {
-      font-weight: 300;
-      font-size: 1rem;
-      padding-left: 5px;
-      color: $dark-grey;
+    &__form {
+      padding-bottom: 7em;
+    }
+
+    &__footer {
+
     }
   }
 
-  &__register {
-    color: $dark-grey;
-    font-weight: 300;
-    font-size: 1rem;
-    margin: 0 auto;
-    display: block;
-    // padding-top: 30px;
-
-    text-align: center;
+  .right {
+    background: white;
+    width: 50vw;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
+    position: relative;
 
-    @media only screen and (max-width: 900px) {
-      flex-direction: column;
+    &__toprightrect {
+      overflow: hidden;
+      svg {
+        height: 700px;
+        position: absolute;
+        top: -170px;
+        right: -620px;
+      }
+      
     }
 
-    &-link {
-      color: $dark-grey;
-      text-decoration: none;
-      padding-left: 5px;
-      transition: color 0.5s ease;
-      font-weight: 400;
-
-      @include mq(s) {
-        padding-top: 5px;
+    &__downleftrect {
+      overflow: hidden;
+      svg {
+        position: absolute;
+        height: 350px;
+        bottom: -170px;
+        left: -200px;
       }
+    }
 
-      &:hover {
-        color: $dark-blue;
-        transition: color 0.5s ease;
+    &__illustration {
+      overflow: hidden;
+      position: relative;
+      svg {
+        height: 600px;
       }
     }
   }
 
-  &__input {
-    position: relative;
-    width: 100%;
-
-    label, input {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 400;
-      transition: all 0.2s;
-      touch-action: manipulation;
-    }
-
-    input:placeholder-shown + label {
-      font-weight: 300;
-      font-size: 0.85rem;
-      padding-left: 2px;
-      margin-bottom: -1em;
-      color: $dark-grey;
-
-      cursor: text;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      transform-origin: left bottom;
-      transform: translate(0, 2em) scale(1.25);
-    }
-
-    ::-webkit-input-placeholder {
-      opacity: 0;
-      transition: inherit;
-    }
-
-    input:focus::-webkit-input-placeholder {
-      opacity: 1;
-    }
-
-    input:not(:placeholder-shown) + label,
-    input:focus + label {
-      font-weight: 300;
-      font-size: 1rem;
-      padding-left: 5px;
-      color: $dark-grey;
-      transform: translate(0, 0) scale(1);
-      cursor: pointer;
-    }
+  &__button {
+    border-radius: 6px;
+    color: #613CF4;
+    background-color: white;
+    border: 0;
+    width: 8em;
+    height: 2.5em;
+    font-size: 1.2em;
+    font-family: Poppins;
   }
 }
