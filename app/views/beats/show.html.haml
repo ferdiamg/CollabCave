@@ -26,7 +26,7 @@
         // Beat likes
         - previous_like = @beat.likes.find { |like| like.user_id == current_user.id }
         -# %p#likes-count
-        -#   = pluralize(beat.likes.count, 'Like')
+        -#   = pluralize(@beat.likes.count, 'Like')
         #like-button{id: @beat.id}
           = like_button_tag @beat, previous_like
           
@@ -39,7 +39,20 @@
 
         // Beat Player
       .box__player
-        %audio#player{ controls: '' }
-          %source{ src: "#{@beat.link+"?raw=1"}", type: "audio/mp3" }          
+        - if current_user.outgoing_collaboration_requests.find_by(beat_id: @beat.id)
+          - if current_user.outgoing_collaboration_requests.find_by(beat_id: @beat.id).approved == true
+            %audio#playerApproved
+              %source{ src: "#{@beat.link+"?raw=1"}", type: "audio/mp3" }
+          - else
+            %audio#playerNotApproved
+              %source{ src: "#{@beat.link+"?raw=1"}", type: "audio/mp3" }
+        - else
+          %audio#playerNotApproved
+            %source{ src: "#{@beat.link+"?raw=1"}", type: "audio/mp3" }
 
-= render 'stems_form'
+- if current_user.beats.find_by_id(@beat.id) || current_user.outgoing_collaboration_requests.find_by(beat_id: @beat.id)
+- else
+  .load-area
+    = link_to 'Request collab', {controller: "collaboration_requests", action: "create", beat_id: @beat.id, collaborator_id: current_user.id, producer_id: @beat.user_id}, method: :post, id: "load-more-beats", class: "button button--link"
+- if @stems
+  = render 'stems_form'

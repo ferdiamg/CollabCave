@@ -15,7 +15,10 @@ class BeatsController < ApplicationController
 
   def show
     @beat = Beat.friendly.find(params[:id])
-    @stems = @beat.stems.all
+    if current_user.beats.find_by_id(@beat.id) || current_user.outgoing_collaboration_requests.where(:approved => true).find_by(beat_id: @beat.id)
+      @stems = @beat.stems.all
+    end
+    @collab = CollaborationRequest.new
   end
 
   def new
@@ -46,7 +49,7 @@ class BeatsController < ApplicationController
     if @beat.update(beat_params)
       redirect_to :beats, notice: "Beat was successfully updated."
     else
-      redirect_to :beats, notice: "Beat couldn't be updated! #{@beat.errors.full_messages}"
+      redirect_to :beats, alert: "Beat couldn't be updated! #{@beat.errors.full_messages}"
     end
   end
 
