@@ -4,11 +4,11 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
 
 .login {
   background-image: linear-gradient(45deg, $prim-blue 0%, $prim-purp 90%);
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   color: white;
 
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 990px) {
     background-image: linear-gradient(45deg, $prim-blue 20%, $prim-purp 120%);
   }
 
@@ -63,13 +63,13 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     border-radius: 6px;
     border: 2px solid white;
     border-color: white;
-    width: 30em;
+    width: 100%;
     height: 4em;
     outline: none;
     color: white;
     margin-bottom: 1.5em;
 
-    @media only screen and (max-width: 1100px) {
+    @media only screen and (max-width: 990px) {
       width: 20em;
     }
 
@@ -90,7 +90,7 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     display: flex;
     flex-direction: row;
 
-    @media only screen and (max-width: 1100px) {
+    @media only screen and (max-width: 990px) {
       flex-direction: column;
     }
   }
@@ -101,7 +101,7 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     padding-left: 10%;
     width: 50vw;
 
-    @media only screen and (max-width: 1100px) {
+    @media only screen and (max-width: 990px) {
       width: 100vw;
       display: flex;
       padding-left: 0;
@@ -113,7 +113,7 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     &__content {
       width: 85%;
 
-      @media only screen and (max-width: 1100px) {
+      @media only screen and (max-width: 990px) {
         text-align: center;
       }
     }
@@ -127,7 +127,7 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
       }
       padding-bottom: 8em;
 
-      @media only screen and (max-width: 1100px) {
+      @media only screen and (max-width: 990px) {
         padding-bottom: 3em;
       }
     }
@@ -135,7 +135,7 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     &__text {
       padding-bottom: 3em;
 
-      @media only screen and (max-width: 1100px) {
+      @media only screen and (max-width: 990px) {
         padding-bottom: 2em;
       }
       &--headline {
@@ -153,14 +153,16 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
 
     &__form {
       padding-bottom: 7em;
+      width: 70%;
 
-      @media only screen and (max-width: 1100px) {
+      @media only screen and (max-width: 990px) {
         padding-bottom: 1em;
+        width: 100%;
       }
     }
 
     &__footer {
-      @media only screen and (max-width: 1100px) {
+      @media only screen and (max-width: 990px) {
         // padding-bottom: 2em;
         display: none;
       }
@@ -180,7 +182,7 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     position: relative;
     box-shadow: 0px 12px 49px rgba(0, 0, 0, 0.10);
 
-    @media only screen and (max-width: 1100px) {
+    @media only screen and (max-width: 990px) {
       width: 100vw;
     }
 
@@ -191,6 +193,11 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
         position: absolute;
         top: -170px;
         right: -620px;
+
+        @media only screen and (max-width: 990px) {
+          top: -170px;
+          right: -820px;
+        }
       }
       
     }
@@ -202,14 +209,34 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
         height: 21.5em;
         bottom: -170px;
         left: -200px;
+
+        @media only screen and (max-width: 990px) {
+          height: 21.5em;
+          bottom: -170px;
+          left: -400px;
+        }
       }
     }
 
     &__illustration {
       overflow: hidden;
       position: relative;
+
+      @media only screen and (max-width: 990px) {
+        overflow: visible;
+        padding-right: 3em;
+        padding-bottom: 5em;
+      }
       svg {
         height: 45em;
+      }
+    }
+
+    &__footer {
+      display: none;
+      @media only screen and (max-width: 990px) {
+        display: block;
+        color: red;
       }
     }
   }
@@ -219,18 +246,20 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     color: #613CF4;
     background-color: white;
     border: 0;
-    width: 8em;
+    width: 6.5em;
     height: 2.3em;
     font-size: 1.1em;
     font-family: Poppins;
     transition: all .2s ease-in-out;
-    @media only screen and (max-width: 1100px) {
+
+    @media only screen and (max-width: 990px) {
       margin-bottom: 1em;
     }
 
     &:hover {
-      box-shadow: 0px 8px 49px rgba(0, 0, 0, 0.1);
+      // box-shadow: 0px 8px 49px rgba(0, 0, 0, 0.1);
       cursor: pointer;
+      transform: scale(1.03);
     }
   }
 }
@@ -238,8 +267,9 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
 .interactions {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 990px) {
     flex-direction: column-reverse;
     align-items: center;
   }
@@ -249,13 +279,12 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding-right: 2.1em;
 
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 990px) {
     justify-content: center;
     align-items: center;
     padding-right: 0;
-    padding-bottom: 2em;
+    padding-bottom: 4em;
   }
 }
 
@@ -263,10 +292,21 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
   font-weight: 300;
   font-size: 0.85rem;
 
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 990px) {
     padding-bottom: 0.2em;
   }
 }
 
-.forgotpw {
+.lpfooter {
+  display: none;
+
+  @media only screen and (max-width: 990px) {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    position: relative;
+    margin-top: -3em;
+    // color: #9385fc;
+    color: #494ce7;
+  }
 }
