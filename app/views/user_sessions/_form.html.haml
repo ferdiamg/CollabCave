@@ -1,10 +1,14 @@
 = form_tag user_sessions_path, method: "POST", class: "login__form" do
-    = text_field_tag :email, nil, placeholder: "Email", class: "login__field", type: "email", required: true
-    = password_field_tag :password, nil, placeholder: "Password", class: "login__field login__field--password", required: true
-    -# .login__field-wrapper
-    -#   = check_box_tag :remember, params[:remember], false
-    -#   = label_tag :remember_me
-    New?
-    = link_to "Sign Up", :register
-    = link_to "Forgot my password", new_password_reset_path
+  = text_field_tag :email, nil, placeholder: "Email", class: "login__field", type: "email", required: true
+  = password_field_tag :password, nil, placeholder: "Password", class: "login__field login__field--password", required: true
+  -# .login__field-wrapper
+  -#   = check_box_tag :remember, params[:remember], false
+  -#   = label_tag :remember_me
+  .interactions
+    .links
+      .signup
+        New?
+        = link_to "Sign Up", :register, class: "login__link"
+      .forgotpw
+        = link_to "Forgot my password!", new_password_reset_path, class: "login__link"
     = submit_tag "Login", class: "login__button"

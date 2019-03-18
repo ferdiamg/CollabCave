@@ -14,9 +14,9 @@ body {
   // width: 50%;
   // max-width: 850px;
 
-  @include mq(s) {
-    width: 70%;
-  }
+  // @include mq(s) {
+  //   width: 70%;
+  // }
 }
 
 ::selection {

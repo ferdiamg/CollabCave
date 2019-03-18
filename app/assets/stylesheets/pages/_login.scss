@@ -1,8 +1,62 @@
+$duration: .2s;
+$distance: 8px;
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+
 .login {
   background-image: linear-gradient(45deg, $prim-blue 0%, $prim-purp 90%);
   width: 100vw;
   height: 100vh;
   color: white;
+
+  @media only screen and (max-width: 1100px) {
+    background-image: linear-gradient(45deg, $prim-blue 20%, $prim-purp 120%);
+  }
+
+  a {
+    position: relative;
+    padding-bottom: 2px;
+  
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0; right: 0;
+      height: 2px;
+      background-color: white;
+    }
+    &:before {
+      opacity: 0;
+      transform: translateY(- $distance);
+      transition: transform 0s $easeOutBack, opacity 0s;
+    }
+    &:after {
+      opacity: 0;
+      transform: translateY($distance/2);
+      transition: transform $duration $easeOutBack, opacity $duration;
+    }
+    &:hover,
+    &:focus {
+      &:before,
+      &:after {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      &:before {
+        transition: transform $duration $easeOutBack, opacity $duration;
+      }
+      &:after {
+        transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
+      }
+    }
+  }
+
+  &__link {
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 0.85rem;
+  }
 
   &__field {
     background: rgba(0, 0, 0, 0);;
@@ -14,6 +68,14 @@
     outline: none;
     color: white;
     margin-bottom: 1.5em;
+
+    @media only screen and (max-width: 1100px) {
+      width: 20em;
+    }
+
+    &--password {
+
+    }
 
     &::placeholder {
       color: white;
@@ -27,23 +89,55 @@
   &__box {
     display: flex;
     flex-direction: row;
+
+    @media only screen and (max-width: 1100px) {
+      flex-direction: column;
+    }
   }
 
   .left {
     font-family: Poppins;
     padding-top: 2em;
-    padding-left: 10em;
+    padding-left: 10%;
     width: 50vw;
 
+    @media only screen and (max-width: 1100px) {
+      width: 100vw;
+      display: flex;
+      padding-left: 0;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+    }
+
+    &__content {
+      width: 85%;
+
+      @media only screen and (max-width: 1100px) {
+        text-align: center;
+      }
+    }
+  }
+
+  .content {
     &__logo {
+      text-align: left;
       svg {
         height: 30px;
       }
       padding-bottom: 8em;
+
+      @media only screen and (max-width: 1100px) {
+        padding-bottom: 3em;
+      }
     }
 
     &__text {
       padding-bottom: 3em;
+
+      @media only screen and (max-width: 1100px) {
+        padding-bottom: 2em;
+      }
       &--headline {
         font-size: 3.5em;
         font-weight: 500;
@@ -59,11 +153,19 @@
 
     &__form {
       padding-bottom: 7em;
+
+      @media only screen and (max-width: 1100px) {
+        padding-bottom: 1em;
+      }
     }
 
     &__footer {
-
+      @media only screen and (max-width: 1100px) {
+        // padding-bottom: 2em;
+        display: none;
+      }
     }
+
   }
 
   .right {
@@ -76,11 +178,16 @@
     align-content: center;
     align-items: center;
     position: relative;
+    box-shadow: 0px 12px 49px rgba(0, 0, 0, 0.10);
+
+    @media only screen and (max-width: 1100px) {
+      width: 100vw;
+    }
 
     &__toprightrect {
       overflow: hidden;
       svg {
-        height: 700px;
+        height: 43em;
         position: absolute;
         top: -170px;
         right: -620px;
@@ -92,7 +199,7 @@
       overflow: hidden;
       svg {
         position: absolute;
-        height: 350px;
+        height: 21.5em;
         bottom: -170px;
         left: -200px;
       }
@@ -102,7 +209,7 @@
       overflow: hidden;
       position: relative;
       svg {
-        height: 600px;
+        height: 45em;
       }
     }
   }
@@ -113,8 +220,53 @@
     background-color: white;
     border: 0;
     width: 8em;
-    height: 2.5em;
-    font-size: 1.2em;
+    height: 2.3em;
+    font-size: 1.1em;
     font-family: Poppins;
+    transition: all .2s ease-in-out;
+    @media only screen and (max-width: 1100px) {
+      margin-bottom: 1em;
+    }
+
+    &:hover {
+      box-shadow: 0px 8px 49px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
   }
+}
+
+.interactions {
+  display: flex;
+  flex-direction: row;
+
+  @media only screen and (max-width: 1100px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-right: 2.1em;
+
+  @media only screen and (max-width: 1100px) {
+    justify-content: center;
+    align-items: center;
+    padding-right: 0;
+    padding-bottom: 2em;
+  }
+}
+
+.signup {
+  font-weight: 300;
+  font-size: 0.85rem;
+
+  @media only screen and (max-width: 1100px) {
+    padding-bottom: 0.2em;
+  }
+}
+
+.forgotpw {
 }

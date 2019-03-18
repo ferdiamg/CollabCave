@@ -2,21 +2,22 @@
 %section.login
   .login__box
     .left
-      .left__logo
-        = show_svg('cclogo.svg')
-      .left__text
-        .left__text--headline
-          Hey, you!
-        .left__text--cta
-          %p
-            Welcome to Collabcave, fellow producer!
-          %p
-            Start to collaborate with creative producers from
-            everywhere around the world and grow together.
-      .left__form
-        = render "form"
-      .left__footer
-        © CollabCave 2019, All Rights Reserved.
+      .left__content
+        .content__logo
+          = show_svg('cclogo.svg')
+        .content__text
+          .content__text--headline
+            Hey, you!
+          .content__text--cta
+            %p
+              Welcome to Collabcave, fellow producer!
+            %p
+              Start to collaborate with creative producers from
+              all around the world and grow together.
+        .content__form
+          = render "form"
+        .content__footer
+          © CollabCave 2019, All Rights Reserved.
     .right
       .right__toprightrect
         = show_svg('toprightrect.svg')
