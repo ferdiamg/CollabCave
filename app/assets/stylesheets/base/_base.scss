@@ -19,6 +19,15 @@ body {
   // }
 }
 
+.mobilewrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  // @include mq(s) {
+  //   width: 70%;
+  // }
+}
+
 ::selection {
   background: $prim-blue;
   color: $white;
