@@ -9,7 +9,7 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
   color: white;
 
   @media only screen and (max-width: 990px) {
-    background-image: linear-gradient(45deg, $prim-blue 20%, $prim-purp 120%);
+    background-image: linear-gradient(45deg, $prim-blue 30%, $prim-purp 120%);
   }
 
   a {
@@ -64,25 +64,24 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     border: 2px solid white;
     border-color: white;
     width: 100%;
-    height: 4em;
+    padding: 0.65em 0;
     outline: none;
     color: white;
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
+    text-indent: 5.5%;
+    font-size: 1.125em;
+    font-weight: 300;
+    font-family: "Poppins";
 
     @media only screen and (max-width: 990px) {
-      width: 20em;
-    }
-
-    &--password {
-
+      width: 70%;
     }
 
     &::placeholder {
       color: white;
-      font-size: 1.5em;
       font-family: "Poppins";
       font-weight: 300;
-      padding-left: 1em;
+      opacity: 1;
     }
   }
 
@@ -96,7 +95,7 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
   }
 
   .left {
-    font-family: Poppins;
+    font-family: "Poppins";
     padding-top: 2em;
     padding-left: 10%;
     width: 50vw;
@@ -112,6 +111,10 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
 
     &__content {
       width: 85%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
       @media only screen and (max-width: 990px) {
         text-align: center;
@@ -125,7 +128,7 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
       svg {
         height: 30px;
       }
-      padding-bottom: 8em;
+      padding-bottom: 4em;
 
       @media only screen and (max-width: 990px) {
         padding-bottom: 3em;
@@ -152,9 +155,8 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     }
 
     &__form {
-      padding-bottom: 7em;
       width: 70%;
-
+      padding-bottom: 3em;
       @media only screen and (max-width: 990px) {
         padding-bottom: 1em;
         width: 100%;
@@ -162,6 +164,7 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     }
 
     &__footer {
+      padding-bottom: 5em;
       @media only screen and (max-width: 990px) {
         // padding-bottom: 2em;
         display: none;
@@ -229,6 +232,10 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
       }
       svg {
         height: 45em;
+
+        @media only screen and (max-width: 990px) {
+          height: 42em;
+        }
       }
     }
 
@@ -243,13 +250,15 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
 
   &__button {
     border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -webkit-appearance: none;
     color: #613CF4;
     background-color: white;
     border: 0;
     width: 6.5em;
     height: 2.3em;
     font-size: 1.1em;
-    font-family: Poppins;
+    font-family: "Poppins";
     transition: all .2s ease-in-out;
 
     @media only screen and (max-width: 990px) {
