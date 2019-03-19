@@ -1,10 +1,31 @@
 - content_for :title, "CollabCave"
 %section.login
   .login__box
-    = image_tag "collabcave_logo.svg", alt: "CollabCave Logo", class: "login__logo"
-    = render "form"
-    .login__register
-      New?
-      = link_to "Sign Up", :register, class: "login__register-link"
-    .login__register
-      = link_to "Forgot my password", new_password_reset_path, class: "login__register-link"
+    .left
+      .left__content
+        .content__logo
+          = show_svg('cclogo.svg')
+        .loginpacker
+          .content__text
+            .content__text--headline
+              Hey, you!
+            .content__text--cta
+              %p
+                Welcome to Collabcave, fellow producer!
+              %p
+                Start to collaborate with creative producers from
+                all around the world and grow together.
+          .content__form
+            = render "form"
+        .content__footer
+          © CollabCave 2019, All Rights Reserved.
+    .right
+      .right__toprightrect
+        = show_svg('toprightrect.svg')
+      .right__downleftrect
+        = show_svg('downleftrect.svg')
+      .floating
+        .right__illustration
+          = show_svg('illustrationv2.svg')
+    .lpfooter
+      © CollabCave 2019, All Rights Reserved.

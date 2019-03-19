@@ -1,28 +1,47 @@
 - content_for :title, "Register at CollabCave"
-
 %section.login
   .login__box
-    = image_tag "collabcave_logo.svg", alt: "CollabCave Logo", class: "login__logo"
-
-    = form_for @user, :html => { class: "login__form" } do |f|
-      .login__input
-        .login__field-wrapper
-          = text_field_tag :beta_key, "", class: "login__field", placeholder: " ", required: true
-          = label_tag :beta_key
-        .login__field-wrapper
-          = f.text_field :email, placeholder: " ", class: "login__field", type: "email", required: true
-          = f.label :email
-        .login__field-wrapper
-          = f.text_field :username, placeholder: " ", class: "login__field", required: true, pattern: '^[a-zA-Z0-9\-_]+$', title: "Only numbers, letters, hyphen and dash allowed!"
-          = f.label :username
-        .login__field-wrapper
-          = f.password_field :password, placeholder: " ", class: "login__field", required: true
-          = f.label :password
-        .login__field-wrapper
-          = f.password_field :password_confirmation, placeholder: " ", class: "login__field login__field--password", required: true
-          = f.label :password_confirmation
-        = f.submit "Register", class: "button button--standard"
-
-    .login__register
-      Got an account already?
-      = link_to "Log In", :login, class: "login__register-link"
+    .left
+      .left__content
+        .content__logo
+          .content__logo--clickable
+            = link_to :root do
+              = show_svg('cclogo.svg')
+        .loginpacker
+          .content__text
+            .content__text--headline
+              Get creative at Collabcave!
+            .content__text--cta
+              %p
+                Join the cave and get out with a collab.
+              %p
+                Start to collaborate with creative producers today!
+          .content__form
+            = form_for @user, :html => { class: "login__form" } do |f|
+              .content__form--beta
+                = text_field_tag :beta_key, "", class: "login__field", placeholder: "Early Access Code", required: true
+              .content__form--emailuser
+                = f.text_field :email, placeholder: "Email", class: "login__field email", type: "email", required: true
+                = f.text_field :username, placeholder: "Username", class: "login__field", required: true, pattern: '^[a-zA-Z0-9\-_]+$', title: "Only numbers, letters, hyphen and dash allowed!"
+              .content__form--passwords
+                = f.password_field :password, placeholder: "Password", class: "login__field password ", required: true
+                = f.password_field :password_confirmation, placeholder: "Password again", class: "login__field", required: true
+              .interactions
+                .links
+                  .signup
+                    Already registered?
+                    .underlineeffect
+                      = link_to "Log In", :login, class: "login__link"
+                = f.submit "Register", class: "login__button"
+        .content__footer
+          © CollabCave 2019, All Rights Reserved.
+    .right
+      .right__toprightrect
+        = show_svg('toprightrect.svg')
+      .right__downleftrect
+        = show_svg('downleftrect.svg')
+      .floating
+        .right__illustration
+          = show_svg('illustrationv2.svg')
+    .lpfooter
+      © CollabCave 2019, All Rights Reserved.

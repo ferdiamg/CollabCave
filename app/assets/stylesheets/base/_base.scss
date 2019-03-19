@@ -10,13 +10,22 @@ body {
 }
 
 .content {
-  flex: 1;
-  width: 50%;
-  max-width: 850px;
+  // flex: 1;
+  // width: 50%;
+  // max-width: 850px;
 
-  @include mq(s) {
-    width: 70%;
-  }
+  // @include mq(s) {
+  //   width: 70%;
+  // }
+}
+
+.mobilewrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  // @include mq(s) {
+  //   width: 70%;
+  // }
 }
 
 ::selection {
