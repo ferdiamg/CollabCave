@@ -20,11 +20,11 @@
   margin-bottom: 2em;
 
   @include mq(m) {
-    flex-direction: column;
+    // flex-direction: column;
   }
 
   &:last-child {
-    margin-bottom: 0em;
+    // margin-bottom: 0em;
   }
 
   &__link {
@@ -63,6 +63,9 @@
     align-items: center;
     flex-direction: row;
     padding-left: 1em;
+    @include mq(s) {
+      padding-left: 0;
+    }
 
     >:hover {
       transition: all 0.1s ease-in-out;
@@ -100,25 +103,39 @@
 }
 
 .decline-wrapper {
-  padding-left: 0.75em;
+  // padding-left: 0.75em;
 }
 
 .outgoing-colloboration {
-  height: 83px;
+  // height: 83px;
   border-radius: 17px;
   background: white;
   box-shadow: 0px 12px 49px rgba(0, 0, 0, 0.09);
   display: flex;
   justify-content: center;
-  padding: 0 1em;
+  padding: 1em 1em;
   align-items: center;
   flex-direction: row;
   color: $dark-blue;
-  margin-bottom: 2em;
+  // margin-bottom: 2em;
+
+  :not(:last-child) {
+    padding-bottom: 0.5em;
+  }
+
+  @include mq(s) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .span-collab {
   margin-right: 0.35em;
+
+  @include mq(s) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .activecollabs {
