@@ -4,8 +4,9 @@
     .left
       .left__content
         .content__logo
-          = link_to :root do
-            = show_svg('cclogo.svg')
+          .content__logo--clickable
+            = link_to :root do
+              = show_svg('cclogo.svg')
         .loginpacker
           .content__text
             .content__text--headline
@@ -25,13 +26,13 @@
               .content__form--passwords
                 = f.password_field :password, placeholder: "Password", class: "login__field password ", required: true
                 = f.password_field :password_confirmation, placeholder: "Password again", class: "login__field", required: true
-              = f.submit "Register", class: "login__button"
-          .interactions
-            .links
-              .signup
-                Got an account already?
-                .underlineeffect
-                  = link_to "Log In", :login, class: "login__link"
+              .interactions
+                .links
+                  .signup
+                    Already registered?
+                    .underlineeffect
+                      = link_to "Log In", :login, class: "login__link"
+                = f.submit "Register", class: "login__button"
         .content__footer
           © CollabCave 2019, All Rights Reserved.
     .right
@@ -41,6 +42,6 @@
         = show_svg('downleftrect.svg')
       .floating
         .right__illustration
-          = show_svg('illustration.svg')
+          = show_svg('illustrationv2.svg')
     .lpfooter
       © CollabCave 2019, All Rights Reserved.
