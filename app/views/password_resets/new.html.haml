@@ -1,10 +1,11 @@
-- content_for :title, "CollabCave"
+- content_for :title, "Reset password"
 %section.login
   .login__box
     .left
       .left__content
         .content__logo
-          = show_svg('cclogo.svg')
+          = link_to :root do
+            = show_svg('cclogo.svg')
         .loginpacker
           .content__text
             .content__text--headline
