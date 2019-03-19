@@ -4,8 +4,9 @@
     .left
       .left__content
         .content__logo
-          = link_to :root do
-            = show_svg('cclogo.svg')
+          .content__logo--clickable
+            = link_to :root do
+              = show_svg('cclogo.svg')
         .loginpacker
           .content__text
             .content__text--headline
@@ -27,6 +28,6 @@
         = show_svg('downleftrect.svg')
       .floating
         .right__illustration
-          = show_svg('illustration.svg')
+          = show_svg('illustrationv2.svg')
     .lpfooter
       © CollabCave 2019, All Rights Reserved.
