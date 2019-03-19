@@ -12,45 +12,6 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     background-image: linear-gradient(45deg, $prim-blue 30%, $prim-purp 120%);
   }
 
-  a {
-    position: relative;
-    padding-bottom: 2px;
-  
-    &:before,
-    &:after {
-      content: '';
-      position: absolute;
-      bottom: 2px;
-      left: 0; right: 0;
-      height: 2px;
-      background-color: white;
-    }
-    &:before {
-      opacity: 0;
-      transform: translateY(- $distance);
-      transition: transform 0s $easeOutBack, opacity 0s;
-    }
-    &:after {
-      opacity: 0;
-      transform: translateY($distance/2);
-      transition: transform $duration $easeOutBack, opacity $duration;
-    }
-    &:hover,
-    &:focus {
-      &:before,
-      &:after {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      &:before {
-        transition: transform $duration $easeOutBack, opacity $duration;
-      }
-      &:after {
-        transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
-      }
-    }
-  }
-
   &__link {
     color: white;
     text-decoration: none;
@@ -127,6 +88,11 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
       text-align: left;
       svg {
         height: 30px;
+        transition: all .2s ease-in-out;
+
+        &:hover {  
+          transform: scale(1.03);
+        }
       }
       padding-bottom: 4em;
 
@@ -157,9 +123,18 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     &__form {
       width: 70%;
       padding-bottom: 3em;
+
       @media only screen and (max-width: 990px) {
         padding-bottom: 1em;
         width: 100%;
+      }
+
+      &--emailuser {
+        display: flex;
+      }
+
+      &--passwords {
+        display: flex;
       }
     }
 
@@ -261,15 +236,18 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     font-size: 1.1em;
     font-family: "Poppins";
     transition: all .2s ease-in-out;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.05);
 
     @media only screen and (max-width: 990px) {
       margin-bottom: 1em;
     }
 
     &:hover {
-      // box-shadow: 0px 8px 49px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
       cursor: pointer;
-      transform: scale(1.03);
+      // transform: scale(1.03);
+      transform: translateY(-0.125em);
+      color: rgb(135, 109, 240);
     }
   }
 }
@@ -319,4 +297,68 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     // color: #9385fc;
     color: #494ce7;
   }
+}
+
+.underlineeffect {
+  display: inline;
+
+  a {
+    position: relative;
+    padding-bottom: 2px;
+  
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0; right: 0;
+      height: 2px;
+      background-color: white;
+    }
+    &:before {
+      opacity: 0;
+      transform: translateY(- $distance);
+      transition: transform 0s $easeOutBack, opacity 0s;
+    }
+    &:after {
+      opacity: 0;
+      transform: translateY($distance/2);
+      transition: transform $duration $easeOutBack, opacity $duration;
+    }
+    &:hover,
+    &:focus {
+      &:before,
+      &:after {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      &:before {
+        transition: transform $duration $easeOutBack, opacity $duration;
+      }
+      &:after {
+        transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
+      }
+    }
+  }
+}
+
+.email {
+  margin-right: 0.75em;
+}
+
+.password {
+  margin-right: 0.75em;
+}
+
+.floating {  
+  animation-name: floating;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+  from { transform: translate(0,  0px); }
+  50%  { transform: translate(0, 15px); }
+  to   { transform: translate(0, -0px); }    
 }
