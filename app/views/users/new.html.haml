@@ -17,17 +17,21 @@
                 Start to collaborate with creative producers today!
           .content__form
             = form_for @user, :html => { class: "login__form" } do |f|
-              = text_field_tag :beta_key, "", class: "login__field", placeholder: "Beta Key", required: true
-              = f.text_field :email, placeholder: "Email", class: "login__field", type: "email", required: true
-              = f.text_field :username, placeholder: "Username", class: "login__field", required: true, pattern: '^[a-zA-Z0-9\-_]+$', title: "Only numbers, letters, hyphen and dash allowed!"
-              = f.password_field :password, placeholder: "Password", class: "login__field", required: true
-              = f.password_field :password_confirmation, placeholder: "Password confirmation", class: "login__field", required: true
+              .content__form--beta
+                = text_field_tag :beta_key, "", class: "login__field", placeholder: "Early Access Code", required: true
+              .content__form--emailuser
+                = f.text_field :email, placeholder: "Email", class: "login__field email", type: "email", required: true
+                = f.text_field :username, placeholder: "Username", class: "login__field", required: true, pattern: '^[a-zA-Z0-9\-_]+$', title: "Only numbers, letters, hyphen and dash allowed!"
+              .content__form--passwords
+                = f.password_field :password, placeholder: "Password", class: "login__field password ", required: true
+                = f.password_field :password_confirmation, placeholder: "Password again", class: "login__field", required: true
               = f.submit "Register", class: "login__button"
-              -# .interactions
-              -#   .links
-              -#     .signup
-              -#       Got an account already?
-              -#       = link_to "Log In", :login, class: "login__link"
+          .interactions
+            .links
+              .signup
+                Got an account already?
+                .underlineeffect
+                  = link_to "Log In", :login, class: "login__link"
         .content__footer
           © CollabCave 2019, All Rights Reserved.
     .right
@@ -35,7 +39,8 @@
         = show_svg('toprightrect.svg')
       .right__downleftrect
         = show_svg('downleftrect.svg')
-      .right__illustration
-        = show_svg('illustration.svg')
+      .floating
+        .right__illustration
+          = show_svg('illustration.svg')
     .lpfooter
       © CollabCave 2019, All Rights Reserved.

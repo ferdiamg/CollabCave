@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    if params[:beta_key] == "CC2019"
+    if params[:beta_key] == "EARLYCC2019"
       @user = User.new(user_params)
       if @user.save
         redirect_to :beats, notice: 'Successfully registered.'
