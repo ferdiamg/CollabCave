@@ -56,8 +56,14 @@ class BeatsController < ApplicationController
   def destroy
     @beat = current_user.beats.friendly.find(params[:id])
     redirect_to :root unless @beat.user == current_user
+
+    @collab = current_user.incoming_collaboration_requests.where(beat_id: @beat.id)
+    if @collab[0]
+      @collab[0].destroy
+    end
+
     if @beat.destroy
-      redirect_to :beats, notice: "Beat was successfully removed."
+        redirect_to :beats, notice: "Beat was successfully removed."
     else
       redirect_to :beats, alert: "Beat couldn't be removed!"
     end
