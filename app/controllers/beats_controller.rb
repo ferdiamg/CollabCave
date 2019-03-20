@@ -58,8 +58,8 @@ class BeatsController < ApplicationController
     redirect_to :root unless @beat.user == current_user
 
     @collab = current_user.incoming_collaboration_requests.where(beat_id: @beat.id)
-    if @collab[0]
-      @collab[0].destroy
+    if @collab
+      @collab.each {|collab| collab.destroy}
     end
 
     if @beat.destroy
