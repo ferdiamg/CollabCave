@@ -6,7 +6,7 @@
       = f.text_field :name, class: 'input input--standard', placeholder: 'Name'
       = f.text_field :bpm, class: 'input input--standard', placeholder: 'BPM'
       -# = f.text_field :key, class: 'input input--standard', placeholder: 'Key'
-      = f.select :key, [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'A#', 'B#', 'C#', 'E#', 'F#', 'G#', 'Am', 'Bm', 'Cm', 'Dm', 'Em', 'Fm', 'Gm', 'A#m', 'B#m', 'C#m', 'E#m', 'F#m', 'G#m' ], {}, {class: 'input input--select' }
+      = f.select :key, [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'A#', 'B#', 'C#', 'D#', 'E#', 'F#', 'G#', 'Am', 'Bm', 'Cm', 'Dm', 'Em', 'Fm', 'Gm', 'A#m', 'B#m', 'C#m', 'D#m' 'E#m', 'F#m', 'G#m' ], {}, {class: 'input input--select' }
       = f.text_field :link, class: 'input input--standard', id: "linkField", placeholder: 'Dropbox-Link', onblur: "clearLink()"
       = f.text_field :tag_list, value: @beat.tag_list.join(", "), class: 'input input--standard'
     = f.submit "Edit Beat", class: "button button--standard beat-inputs__button"

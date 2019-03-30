@@ -5,7 +5,7 @@
     .beat-inputs
       = f.text_field :name, class: 'input input--standard', placeholder: 'Name', pattern: '.{3,25}', title: "Maximum length is 25 letters!", required: true
       = f.text_field :bpm, class: 'input input--standard', placeholder: 'BPM',  pattern: '.{1,3}', title: "Ranges from 1-999!", required: true
-      = f.select :key, [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'A#', 'B#', 'C#', 'E#', 'F#', 'G#', 'Am', 'Bm', 'Cm', 'Dm', 'Em', 'Fm', 'Gm', 'A#m', 'B#m', 'C#m', 'E#m', 'F#m', 'G#m' ], { include_blank: 'Key' }, {required: true, class: 'input input--select'}
+      = f.select :key, [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'A#', 'B#', 'C#', 'D#', 'E#', 'F#', 'G#', 'Am', 'Bm', 'Cm', 'Dm', 'Em', 'Fm', 'Gm', 'A#m', 'B#m', 'C#m', 'D#m', 'E#m', 'F#m', 'G#m' ], { include_blank: 'Key' }, {required: true, class: 'input input--select'}
     .beat-inputs-2
       = f.text_field :link, class: 'input input--standard', placeholder: 'Dropbox-Link', pattern: '.*\.(?:mp3|ogg|wav)$', title: "Link must end on either .mp3, .wav or .ogg!", required: true, id: "linkField", onblur: "clearLink()"
       = f.collection_select :tag_list, ActsAsTaggableOn::Tag.all, :name, :name, {}, multiple: true, required: true

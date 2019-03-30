@@ -3,7 +3,7 @@
     .filter__inputs
       = text_field_tag :from_bpm, nil, placeholder: "from BPM", class: "input input--standard input--nomargin"
       = text_field_tag :to_bpm, nil, placeholder: "to BPM", class: "input input--standard input--nomargin"
-      = select_tag :key, "<option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>A#</option><option>B#</option><option>C#</option><option>E#</option><option>F#</option><option>G#</option><option>Am</option><option>Bm</option><option>Cm</option><option>Dm</option><option>Em</option><option>Fm</option><option>Gm</option><option>A#m</option><option>B#m</option><option>C#m</option><option>E#m</option><option>F#m</option><option>G#m</option>".html_safe, class: "input input--select input--select--nomargin", prompt: "Key"
+      = select_tag :key, "<option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>A#</option><option>B#</option><option>C#</option><option>D#</option><option>E#</option><option>F#</option><option>G#</option><option>Am</option><option>Bm</option><option>Cm</option><option>Dm</option><option>Em</option><option>Fm</option><option>Gm</option><option>A#m</option><option>B#m</option><option>C#m</option><option>D#m</option><option>E#m</option><option>F#m</option><option>G#m</option>".html_safe, class: "input input--select input--select--nomargin", prompt: "Key"
       = text_field_tag :tagged_with, nil, placeholder: "Artists", class: "input input--standard input--nomargin"
       = hidden_field_tag 'filter', 'filter'
   = submit_tag "Filter", class: "button button--standard center-button"
